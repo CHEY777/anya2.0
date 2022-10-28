@@ -1516,14 +1516,35 @@ replay('This Group has been *unbanned* from using me!')
   }
   break
 
+case 'botgrups':
+case 'botgroups':
+case 'botgrup':
+case 'botgroup':
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+reply(` Here's the list of some awesome *Bot groups* ❤️✨
+🔥 *Group 1*
+https://chat.whatsapp.com/G0dZXqJAL9b1boqnra7eb4
+❤️ To resister your group in this list, *Contact here* http://wa.me//+918811074852 `)
+break
+case 'getsxvdxcmd': {
+if (isBan) return reply(mess.ban)	 			
+if (isBanChat) return reply(mess.banChat)
+Miku.sendMessage(from, {sticker:{url:"https://ZackMiku.github.io/media/menu.webp"}}, {quoted:m})
+Miku.sendMessage(from, {sticker:{url:"https://ZackMiku.github.io/media/groupopen.webp"}}, {quoted:m})
+Miku.sendMessage(from, {sticker:{url:"https://ZackMiku.github.io/media/groupclose.webp"}}, {quoted:m})
+}
+break
+
+
 case 'support': case 'supportgc':
     
-    reply(`*My developer's group:* http://gg.gg/MikuSupport`)
+    reply(`*My developer's group:* https://chat.whatsapp.com/G0dZXqJAL9b1boqnra7eb4`)
     break
 
 case 'repo': case 'botrepo':
     
-    reply(`*My Source Code:* https://github.com/FantoX001/Miku-MD`)
+    reply(`*My Source Code:* https://github.com/Chey-san/Chey-s-anya`)
     break
 
 case 'nsfwmenu':
@@ -1700,7 +1721,7 @@ if (isBanChat) return reply(mess.bangc)
             let comm = [`group close`,`leveling off`,`antilinkgc off`,`antilinktg off`,`antilinktt off`,`antilinkytch off`,`antilinkytvid off`,`antilinkig on`,`antilinkfb off`,`antilinktwit off`,`antilinkall off`,`antiwame off`]
             let listnya = [`Group open/close`,`Leveling on/off`,`Antilink Group on/off`,`Antilink Telegram on/off`,`Antilink Tiktok on/off`,`Antilink Youtube Channel on/off`,`Antilink Youtube Video on/off`,`Antilink Instagram on/off`,`Antilink Facebook on/off`,`Antilink Twitter on/off`,`Antilink All on/off`,`Anti Wame on/off`]
             let suruh = [`Enable`, `Disable`]
-            let fiturname = [`Group`,`Leveling`,`Auto Sticker`,`Antilink Group`,`Antilink Telegram`,`Antilink Tiktok`,`Antilink Youtube Channel`,`Antilink Youtube Video`,`Antilink Instagram`,`Antilink Facebook`,`Antilink Twitter`,`Antilink All`,`Anti Wame`,`Auto Revoke`]
+            let fiturname = [`🥵 𝗚𝗿𝗼𝘂𝗽 ✨`,`🥵 𝗔𝗻𝘁𝗶𝗹𝗶𝗻𝗸 𝗮𝗹𝗹 🔗`,`🥵 𝗔𝗻𝘁𝗶 𝘁𝗼𝘅𝗶𝗰 ☣️`,`🥵 𝗔𝗻𝘁𝗶 𝘃𝗶𝗿𝘂𝘀 🦠`,`🥵 𝗔𝘂𝘁𝗼 𝘀𝘁𝗶𝗰𝗸𝗲𝗿 👻`,`🥵 𝗔𝘂𝘁𝗼 𝘀𝘁𝗶𝗰𝗸𝗲𝗿 𝗽𝗿𝗶𝘃𝗮𝘁𝗲 𝗰𝗵𝗮𝘁 👽`,`🥵 𝗔𝗻𝘁𝗶 𝗴𝗿𝗼𝘂𝗽 𝗹𝗶𝗻𝗸 🔗`,`🥵 𝗔𝗻𝘁𝗶 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺 𝗹𝗶𝗻𝗸 🔗`,`🥵 𝗔𝗻𝘁𝗶 𝗧𝗶𝗸𝗧𝗼𝗸 𝗹𝗶𝗻𝗸 🔗`,`🥵 𝗔𝗻𝘁𝗶 𝗬𝗼𝘂𝗧𝘂𝗯𝗲 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 𝗹𝗶𝗻𝗸 🔗`,`🥵 𝗔𝗻𝘁𝗶 𝗬𝗼𝘂𝗧𝘂𝗯𝗲 𝘃𝗶𝗱𝗲𝗼 𝗹𝗶𝗻𝗸 🔗`,`🥵 𝗔𝗻𝘁𝗶 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺 𝗹𝗶𝗻𝗸 🔗`,`🥵 𝗔𝗻𝘁𝗶 𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸 𝗹𝗶𝗻𝗸 🔗`,`🥵 𝗔𝗻𝘁𝗶 𝗧𝘄𝗶𝘁𝘁𝗲𝗿 𝗹𝗶𝗻𝗸 🔗`,`🥵 𝗔𝗻𝘁𝗶 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 𝗽𝗿𝗼𝗳𝗶𝗹𝗲 𝗹𝗶𝗻𝗸 🔗`,`🥵 𝗡𝗦𝗙𝗪 💦`]
             let startnum = 0; let startnu = 0; let startn = 0;let start = 0
             let startnumm = 1
             for (let x of com) {
@@ -1731,6 +1752,179 @@ sections
 )  
 }
 break
+
+
+
+
+case 'command': {
+                	   if (isBan) return reply(mess.ban)
+	if (isBanChat) return reply(mess.banChat)
+let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                listMessage :{
+                    title: `Aww my darling ${pushname} you need help? 🥺❤️`,
+                    description: `╭╼━━━᚜ 𝓐𝔂𝓷𝓪 𝓫𝔂 𝓒𝓱𝓮𝔂 ᚛━━━╾╮
+│                                                 ❒
+🔥 *My prefix*       : ( - )
+❤️ *My name*       : ${global.BotName}
+🥵 *User name*    : ${pushname}
+😻 *Bot speed*      : ${latensie.toFixed(4)} ms
+🐤 *Bot runtime*   : ${runtime(process.uptime())}
+❤️‍🔥 *Bot users*      : ${Object.keys(global.db.users).length}
+💜 *Owner name* : ${global.OwnerName}
+🦊 *Owner num.*  : http://wa.me//${global.OwnerNumber}
+🍓 *Group name*  : ${groupMetadata.subject}
+│                                                 ❒
+╰╼━━━━━━━━━━━━━━━━╾╯\n\n`,
+                    buttonText: "🦋⃟✮͢ 𝑻𝒂𝒑 𝒉𝒆𝒓𝒆 ✮⃝❤️" ,
+                    footerText: `${global.BotName}`,
+                    listType: "SINGLE_SELECT",
+                    sections: [{
+								"title": "Initial Features Of Bot 🦄",
+								"rows": [
+									{
+										"title": "Other ☕",
+										"description": "Displays The List Of Other Features",
+										"rowId": `${prefix}othermenu`
+									}
+								]
+							},
+							{
+								"title": "Bot Features ❤️",
+								"rows": [
+									{
+										"title": "All Menu 🥀",
+										"description": "Displays The List Of All The Features!",
+										"rowId": `${prefix}allmenu`
+									},
+									{
+										"title": "Owner Menu 💠",
+										"description": "Displays The List Of Owner Features",
+										"rowId": `${prefix}ownermenu`
+										},
+									{
+										"title": "Group Menu ✨",
+										"description": "Displays The List Of Main Features",
+										"rowId": `${prefix}groupmenu`
+										},
+										{
+										"title": "Rpg Menu 🏞️",
+										"description": "Displays The List Of Rpg Features",
+										"rowId": `${prefix}rpgmenu`
+										},
+										{
+										"title": "Maker Menu 🌈",
+										"description": "Displays The List Of Logo Making Features",
+										"rowId": `${prefix}indomenu`
+									},
+									{
+										"title": "Sound Menu 🎵",
+										"description": "Displays The List Of Sound Features",
+										"rowId": `${prefix}soundmenu`
+									},
+									{
+										"title": "Download Menu ↘️",
+										"description": "Displays The List Of Download Features",
+										"rowId": `${prefix}downloadmenu`
+									},
+									{
+										"title": "Sticker Menu 🃏",
+										"description": "Displays The List Of Sticker Features",
+										"rowId": `${prefix}indomenu`
+									},
+									{
+										"title": "Search Menu 🔎",
+										"description": "Displays The List Of Searching Features",
+										"rowId": `${prefix}searchmenu`
+									},
+									{
+										"title": "Tool Menu ⚙️",
+										"description": "Displays The List Of Tool Features",
+										"rowId": `${prefix}toolmenu`
+									},
+									{
+										"title": "Random Image Menu 🌆",
+										"description": "Displays The List Of Random Image Features",
+										"rowId": `${prefix}randomimagemenu`
+									},
+										{
+											"title": "Anime Menu 😘",
+										"description": "Displays The List Of Random Anime Features",
+										"rowId": `${prefix}animemenu`
+										},
+										{
+										"title": "Anime Sticker Menu ☺️",
+										"description": "Displays The List Of Anime Sticker Features",
+										"rowId": `${prefix}animestickermenu`
+									     },
+									{
+										"title": "Nsfw Menu 🤓",
+										"description": "Displays The List Of Nsfe Features",
+										"rowId": `${prefix}nsfwmenu`
+									     },
+										{
+											"title": "Fun Menu 🕺",
+										"description": "Displays The List Of Fun Features",
+										"rowId": `${prefix}funmenu`
+										},
+										{
+										"title": "Game Menu 🎮",
+										"description": "Displays The List Of Game Features",
+										"rowId": `${prefix}indomenu`
+									},
+										{
+											"title": "Convert Menu ⚒️",
+										"description": "Displays The List Of Convert Features",
+										"rowId": `${prefix}convertmenu`
+										},
+										{
+											"title": "Database Menu ♻️",
+										"description": "Displays The List Of Database Features",
+										"rowId": `${prefix}databasemenu`
+										},
+										{
+											"title": "Islamic Menu 🧕",
+										"description": "Displays The List Of Islamic Features",
+										"rowId": `${prefix}islamicmenu`
+										},
+										{
+										"title": "Indo Menu  🦜",
+										"description": "Displays The List Of Indo Features",
+										"rowId": `${prefix}indomenu`
+									},
+										{
+											"title": "Horoscope Menu 🕊️",
+										"description": "Displays The List Of Horoscope Features",
+										"rowId": `${prefix}indohoroscopemenu`
+										}
+								]
+							},
+							{
+								"title": "Chat With Fellow Users 🌝",
+								"rows": [
+									{
+										"title": "Anonymous Chat Menu 🙎🏻‍♂️",
+										"description": "Displays The List Of Anonymous Chat Features",
+										"rowId": `${prefix}anonymousmenu`
+									}
+								]
+							},
+							{
+								"title": "Credit ©️",
+								"rows": [
+									{
+										"title": "Thanks To ❤️",
+										"description": "Displays The List Of Credit Of The Bot !!",
+										"rowId": `${prefix}tqtt`
+									}
+								]
+							}
+						],
+          listType: 1
+                }
+            }), {})
+            Miku.relayMessage(m.chat, template.message, { messageId: template.key.id })
+            }
+            break
 
 /*
 case 'animesearchxxx': case 'anime':{
@@ -1847,7 +2041,7 @@ await Miku.sendMessage(m.chat, { delete: key })
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
- let teks = ` 「  Miku's group user list  」\n\nTotal ${anu.length} users are using bot in Groups.`
+ let teks = `*MY GROUP USER LIST* 🤏🕶️🐤\n💝 Total *${anu.length}* users are using ${global.BotName} in there Groups.`
  for (let i of anu) {
   let metadata = await Miku.groupMetadata(i)
   if (metadata.owner === "undefined") {
@@ -1855,7 +2049,14 @@ await Miku.sendMessage(m.chat, { delete: key })
   } else {
   loldd = metadata.owner
   }
-  teks += `\n\nName : ${metadata.subject ? metadata.subject : "undefined"}\nOwner : ${loldd ? '@' + loldd.split("@")[0] : "undefined"}\nID : ${metadata.id ? metadata.id : "undefined"}\nMade : ${metadata.creation ? moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss') : "undefined"}\nMember : ${metadata.participants.length ? metadata.participants.length : "undefined"}`
+  teks += `\n╭╼━━━━━᚜ 𝓤𝓼𝓮𝓻 𝓭𝓪𝓽𝓪 ᚛━━━━━╾╮
+╽
+❤️ *Name*  : ${metadata.subject ? metadata.subject : "undefined"}
+🥵 *Owner* : ${loldd ? '@' + loldd.split("@")[0] : "undefined"}
+😻 *Grp ID* : ${metadata.id ? metadata.id : "undefined"}
+🎃 *Creation time* : ${metadata.creation ? moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss') : "undefined"}
+🍓 *Members* : ${metadata.participants.length ? metadata.participants.length : "undefined"}
+╰╼━━━━━━━━━━━━━━━━━━╾╯`
  }
  Miku.sendTextWithMentions(m.chat, teks, m)
  }
@@ -2437,20 +2638,29 @@ if (isBanChat) return reply(mess.bangc)
  }
  break
 
- case 'tag': case 'tagall': case 'all':{
+case 'tag': case 'tagall': case 'all':{
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
- if (!isAdmins && !isCreator) return replay(mess.useradmin)
- let teks = `「 _Tag All_ 」
-  
- *Message : ${args.join(" ") ? args.join(" ") : 'no message'}*\n\n`
- for (let mem of participants) {
- teks += `» @${mem.id.split('@')[0]}\n`
- }
- Miku.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
- }
- break
+ if (!isAdmins && !isCreator) return replay(mess.useradmin) 
+ let Text = `
+╭╼━━━᚜ 𝓐𝓷𝔂𝓪 𝓱𝔂 𝓒𝓱𝓮𝔂 ᚛━━━╾╮
+│                                                 ❒
+│            *༺ TAGALL ༻*
+│
+🔥 *Group name* : ${groupMetadata.subject}
+├───────────♡
+🔥 *Message* : ${args.join(" ") ? args.join(" ") : 'no message'}
+├───────────♡
+🔥 *Announcer* : @${m.sender.split('@')[0]}
+╰╼━━━━━━━━━━━━━━━━━❒ \n\n╭╼━━━᚜ 𝓜𝓮𝓶𝓫𝓮𝓻𝓼 𝓝𝓪𝓶𝓮 ᚛━━━╾╮
+╽                                                 ❒  ` 
+                for (let mem of participants) {
+                Text += `\n┃🔥@${mem.id.split('@')[0]} `
+                }
+                Miku.sendMessage(m.chat, { text: Text, mentions: participants.map(a => a.id) }, { quoted: m })
+                }
+                break
 
  case 'hidetag': {
     if (isBan) return reply(mess.banned)	 			
@@ -3943,11 +4153,12 @@ case 'trap' :
 reply(mess.waiting)
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/${command}`)       
  let trapbot = [
-    {buttonId: `-trap`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `-trap`, buttonText: {displayText: `One more trap 🥵`}, type: 1},
+    {buttonId: `-nsfwmenu`, buttonText: {displayText: 'Hentai menu 💦'}, type: 1}
     ]
   let button2Messages = {
    image: {url:waifudd.data.url},
-   caption:  `Here it is...`,
+   caption:   `🥵 *Here is your trap ${pushname}`,
   buttons: trapbot,
   headerType: 1
   }     
@@ -3987,11 +4198,12 @@ case 'hwaifu' :
 reply(mess.waiting)
     waifudd = await axios.get(`https://waifu.pics/api/nsfw/waifu`)         
  let nwaifubot = [
-    {buttonId: `-${command}`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `-${command}`, buttonText: {displayText: `One more waifu 🥵`}, type: 1},
+    {buttonId: `-nsfwmenu`, buttonText: {displayText: 'NSFW menu 💦'}, type: 1}
     ]
   let button4Messages = {
    image: {url:waifudd.data.url},
-   caption:  `Here it is...`,
+   caption:  `🤤 *I got your hentai waifu ${pushname}* ❤️`,
   buttons: nwaifubot,
   headerType: 1
   }      
@@ -4029,7 +4241,9 @@ case 'smug2':
 reply(mess.waiting)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/smug`)
                            var wbuttsss = [
-        {buttonId: `-smug2`, buttonText: {displayText: `>>`}, type: 1},
+        {buttonId: `-smug2`, buttonText: {displayText: `>> More smug >>`}, type: 1},
+        {buttonId: `-menu`, buttonText: {displayText: '🍓 Menu 🍓'}, type: 1},
+        {buttonId: `-me`, buttonText: {displayText: 'My profile ❤️'}, type: 1}    
         ]
       let button1ssMessages = {
        image: {url:waifudd.data.url},
@@ -4071,7 +4285,9 @@ case 'animenom' :
 reply(mess.waiting)
     waifudd = await axios.get(`https://waifu.pics/api/sfw/nom`)
  let xxhnekobot = [
-    {buttonId: `-animenom`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `-animenom`, buttonText: {displayText: `More nom 😋`}, type: 1},
+    {buttonId: `-waifu`, buttonText: {displayText: 'Waifu❤️'}, type: 1},
+    {buttonId: `-waifu-face`, buttonText: {displayText: 'Cute waifu face 😚'}, type: 1}                
     ]
   let xx1button3Messages = {
    image: {url:waifudd.data.url},
@@ -4084,14 +4300,16 @@ reply(mess.waiting)
                 })
 break
 
-case 'waifu3':
+case 'waifu-face':
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
     if (!m.isGroup) return replay(mess.grouponly)
 reply(mess.waiting)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/waifu`)
                            var wbuttsss = [
-        {buttonId: `-waifu3`, buttonText: {displayText: `>>`}, type: 1},
+        {buttonId: `-waifu-face`, buttonText: {displayText: `More waifu faces😚`}, type: 1},
+        {buttonId: `-waifu`, buttonText: {displayText: 'Waifu❤️'}, type: 1},
+        {buttonId: `-menu`, buttonText: {displayText: '🍓 Menu 🍓'}, type: 1}               
         ]
       let button112ssMessages = {
        image: {url:waifudd.data.url},
@@ -4112,7 +4330,9 @@ case 'crossplay': case 'crosplay': case 'cosplay':
     if (isBanChat) return reply(mess.bangc)
     if (!m.isGroup) return replay(mess.grouponly)
                 const buttons = [
-        {buttonId: '-crossplay', buttonText: {displayText: '>>'}, type: 1},
+        {buttonId: '-crossplay', buttonText: {displayText: 'Again 🍓'}, type: 1},
+        {buttonId: `-waifu`, buttonText: {displayText: 'Waifu ❤️'}, type: 1},
+        {buttonId: `-nsfw`, buttonText: {displayText: 'NSFW 💦'}, type: 1}              
             ]               
         const cosplybutton = {
         image: {url: 'https://hanzz-web.herokuapp.com/api/randomimage/cosplay'},
@@ -4138,7 +4358,9 @@ case 'neko2':
 reply(mess.waiting)							
    waifud = await axios.get('https://waifu.pics/api/sfw/neko')
                 var wbutsss = [
-        {buttonId: `-neko2`, buttonText: {displayText: `>>`}, type: 1},
+        {buttonId: `-neko`, buttonText: {displayText: `More neko 🥴`}, type: 1},
+        {buttonId: `-megumin`, buttonText: {displayText: 'Megumin ✨'}, type: 1},
+        {buttonId: `-tickle`, buttonText: {displayText: '😋 tickel 😋'}, type: 1}        
         ]
       let buttonssMessage = {
        image: {url:waifud.data.url},
@@ -4163,7 +4385,9 @@ case 'tickle':
 reply(mess.waiting)							
  waifudd = await axios.get(`https://nekos.life/api/v2/img/${command}`)
                            var wbuttsss = [
-        {buttonId: `-${command}`, buttonText: {displayText: `>>`}, type: 1},
+        {buttonId: `-${command}`, buttonText: {displayText: `One more🤍`}, type: 1},
+        {buttonId: `-crosplay`, buttonText: {displayText: `Hot girl 🔥`}, type: 1},
+        {buttonId: `-loli`, buttonText: {displayText: `Loli ❣️`}, type: 1}
         ]
       let buttonssMessages = {
        image: {url:waifudd.data.url},
@@ -4603,11 +4827,13 @@ case 'waifu' :
 reply(mess.waiting)	
     waifuddd = await axios.get('https://waifu.pics/api/sfw/waifu')
  var wbuttsssr = [
-    {buttonId: `-waifu`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `-waifu`, buttonText: {displayText: `More waifu 🥵`}, type: 1},
+    {buttonId: `-loli`, buttonText: {displayText: 'Loli 😚'}, type: 1},
+    {buttonId: `-nsfw`, buttonText: {displayText: 'NSFW 🔥'}, type: 1}            
     ]
         let button4Messagess = {
         image: {url:waifuddd.data.url},
-        caption: 'More than one waifu will definitely ruin your Laifu!',
+        caption: '😳 *I got your waifu baby* .\n\n🥵 _But be careful because_ ,\n\n_More than one waifu will definitely ruin your Laifu!_❤️',
         buttons: wbuttsssr,
         headerType: 4
          }     
@@ -4624,7 +4850,9 @@ case 'neko' :
 reply(mess.waiting)	
     waifuddd = await axios.get('https://waifu.pics/api/sfw/neko')
  var wbuttsssr = [
-    {buttonId: `-neko`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `-neko2`, buttonText: {displayText: `Neko once more 😋`}, type: 1},
+    {buttonId: `-meow`, buttonText: {displayText: 'Kitty waifu 😻'}, type: 1},       
+    {buttonId: `-awoo`, buttonText: {displayText: 'Awoooo😚'}, type: 1}        
     ]
         let buttonMessagessf = {
         image: {url:waifuddd.data.url},
@@ -4646,7 +4874,9 @@ case 'loli' :
 reply(mess.waiting)	
     waifuddd = await axios.get('https://waifu.pics/api/sfw/shinobu')
  var wbuttsssr = [
-    {buttonId: `-loli`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `-loli`, buttonText: {displayText: `𝘖𝘯𝘦 𝘮𝘰𝘳𝘦 𝘓𝘰𝘭𝘪❤️`}, type: 1},
+    {buttonId: `-neko`, buttonText: {displayText: `Neko 🍓`}, type: 1},
+    {buttonId: `-foxgirl`, buttonText: {displayText: `Fox waifu 🦊`}, type: 1}
     ]
         let buttonMessagessfgr = {
         image: {url:waifuddd.data.url},
@@ -4741,99 +4971,298 @@ replay('Broadcast Sent !')
 break    
 
 
-case 'help': case 'h': case 'menu': case 'allmenu': case 'listmenu':{
+case 'allmenu': case 'help':{
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
       
- const helpmenu = `Konichiwa *${pushname}* Senpai,
-
-I am *Miku Nakano*, a bot developed by *Fantox*.
-
-🔰 My prefix is:  ${prefix}
-
-Here's the list of my Commands.
-
-
+ const helpmenu = `Hey *${pushname}* Darling❤️,
+╭╼━᚜ 𝓐𝔂𝓷𝓪 𝓫𝔂 𝓒𝓱𝓮𝔂 ᚛━╾╮
+│                                      ❒
+🔥 *My prefix*       : ( - )
+❤️ *My name*       : ${global.BotName}
+🥵 *User name*    : ${pushname}
+😻 *Bot speed*     : ${latensie.toFixed(4)} ms
+🎃 *Owner name* : ${global.OwnerName}
+🍓 *Group name*  : ${groupMetadata.subject}
+│                                      ❒
+╰╼━━━━━━━━━━━━╾╯
+*-* Here's the list of my Commands *-*
  
- *━━━〈  🎆 Core 🎆  〉━━━*
-
-speak, miku, stalk, profile, help, delete, deleteall, listgc, listpc, welcome, support, repo, script 
+ *━━━〈  😻 Core 😻  〉━━━*
+❒✗ -alive  *( bot working? )*
+❒✗ -speak
+❒✗ -${global.BotName} 
+❒✗ -calculator 
+❒✗ -stalk
+❒✗ -profile
+❒✗ -help
+❒✗ -listgc
+❒✗ -listpc
+❒✗ -support
+❒✗ -script
+❒✗ -botgroups 
+ *━━━〈  🥵 Owner 🥵  〉━━━*
+❒✗ -self
+❒✗ -public
+❒✗ -ban
+❒✗ -bangroup
+❒✗ -bye
+❒✗ -join
+❒✗ -bye
+❒✗ -block
+❒✗ -unblock
+❒✗ -broadcast
+❒✗ -delete *( bot msg )*
  
- *━━━〈  🎀 Owner 🎀  〉━━━*
-
-self, public, ban, bangroup, bye, join, bye, block, unblock, broadcast 
-
- *━━━〈  ⭕ Group ⭕  〉━━━*
+ *━━━〈  🐦 Group 🐦  〉━━━*
  
-promote, demote, revoke, add, remove, tagall, hidetag, groupsetting, grouplink, setgcpp, setname, setdesc, group, nsfw 
-
- *━━━〈  ➰ Anti Link ➰  〉━━━*
+❒✗ -deletethis  *( any msg )*
+❒✗ -promote
+❒✗ -demote
+❒✗ -revoke
+❒✗ -add
+❒✗ -remove
+❒✗ -tagall
+❒✗ -hidetag
+❒✗ -afk  *( type reason )*
+❒✗ -grouplink
+❒✗ -setgcpp
+❒✗ -setname
+❒✗ -setdesc
+❒✗ -group  *( open/close )*
+❒✗ -groupsettings
+ *━━━〈  🔪 Anti Link 🔪  〉━━━*
  
-antilinkgc, antilinktg, antilinktt, antilinkytch, antilinkytvid, antilinkig, antilinkfb, antilinktwit, antilinkall, antiwame
-
- *━━━〈  🔍 Search 🔍  〉━━━*
-
-play, ytmp3, ytmp4, yts, lyrics, google, gimage, pinterest, image, movie, wallpaper, searchgc, happymod, wikimedia, ringtone, anime, animestory, manga, ringtone  
-
- *━━━〈  🔰 Convert 🔰  〉━━━*
-
-sticker, toimg, tovideo, togif , steal, stickermeme, emojimix, tourl, tomp3, toaudio
-
+❒✗ -antilinkgc
+❒✗ -antilinktg
+❒✗ -antilinktt
+❒✗ -antilinkytch
+❒✗ -antilinkytvid
+❒✗ -antilinkig
+❒✗ -antilinkfb
+❒✗ -antilinktwit
+❒✗ -antilinkall
+❒✗ -antiwame
+ *━━━〈  🧐 Search 🧐  〉━━━*
+❒✗ -play
+❒✗ -song
+❒✗ -yts
+❒✗ -getmusic
+❒✗ -getvideo
+❒✗ -lyrics
+❒✗ -google
+❒✗ -gimage
+❒✗ -pinterest
+❒✗ -image
+❒✗ -movie
+❒✗ -wallpaper
+❒✗ -searchgc
+❒✗ -happymod
+❒✗ -wikimedia
+❒✗ -ringtone
+❒✗ -anime
+❒✗ -animestory
+❒✗ -manga
+❒✗ -ringtone  
+ *━━━〈  🫧 Convert 🫧  〉━━━*
+❒✗ -sticker
+❒✗ -toimg
+❒✗ -tovideo
+❒✗ -togif
+❒✗ -steal
+❒✗ -stickermeme
+❒✗ -emoji
+❒✗ -emojimix
+❒✗ -tourl
+❒✗ -tomp3
+❒✗ -toaudio
  *━━━〈  🔉 Audio 🔉  〉━━━*
-
-bass, tempo, blown, deep, earrape, fast, fat, nightcore, reverse, robot, slow, squirrel
-
- *━━━〈  📍 Reactions 📍  〉━━━*
-
-bonk, cry, bully, cuddle, hug, kiss, lick, pat, smug, yeet, blush, smile, wave, highfive, handhold, nom, glomp, bite, slap, kill, happy, wink, poke, dance, cringe
-
- *━━━〈  🌌 Downloader 🌌  〉━━━*
-
-play, ytmp3, ytmp4, ytvideo, mediafire, instagram, igtv, facebook, fbmp3, twitter, twittermp3, tiktok, tiktokaudio, tiktoknowm, mediafire  
-
- *━━━〈  🈴 Weeb 🈴  〉━━━*
-
-crosplay, waifu, loli, neko, ppcouple, feed, foxgirl, feed, meow, tickle, wallpaper, coffee, animenom, waifu3, neko2, feed, meow, tickle, migumin, awoo, animewallpaper2, anime, manga
-
- *━━━〈  ♨️ Informative ♨️  〉━━━*
-
-animequote, quote, covid, earthquake, wiki
-
- *━━━〈  🎗 Others 🎗  〉━━━*
-
-stickermeme, quotes, darkjoke 
-
- *━━━〈  🎐 Fun 🎐  〉━━━*
-
-reaction, truth, dare, couple, soulmate, handsomecheck, beautifulcheck, awesomecheck, greatcheck, gaycheck, cutecheck, lesbiancheck, hornycheck, prettycheck, lovelycheck, uglycheck, charactercheck
-
+❒✗ -bass
+❒✗ -tempo
+❒✗ -blown
+❒✗ -deep
+❒✗ -earrape
+❒✗ -fast
+❒✗ -fat
+❒✗ -nightcore
+❒✗ -reverse
+❒✗ -robot
+❒✗ -slow
+❒✗ -squirrel
+ *━━━〈  👻 Reactions 👻  〉━━━*
+❒✗ -bonk
+❒✗ -cry
+❒✗ -bully
+❒✗ -cuddle
+❒✗ -hug
+❒✗ -kiss
+❒✗ -lick
+❒✗ -pat
+❒✗ -smug
+❒✗ -yeet
+❒✗ -blush
+❒✗ -smile
+❒✗ -wave
+❒✗ -highfive
+❒✗ -handhold
+❒✗ -nom
+❒✗ -glomp
+❒✗ -bite
+❒✗ -slap
+❒✗ -kill
+❒✗ -happy
+❒✗ -wink
+❒✗ -poke
+❒✗ -dance
+❒✗ -cringe
+ *━━━〈  🎃 Downloader 🎃  〉━━━*
+❒✗ -play
+❒✗ -jpeg
+❒✗ -ytmp3
+❒✗ -ytmp3x
+❒✗ -ytmp4
+❒✗ -ytmp4x
+❒✗ -ytvideo
+❒✗ -mediafire
+❒✗ -instagram
+❒✗ -igtv
+❒✗ -facebook
+❒✗ -fbmp3
+❒✗ -twitter
+❒✗ -twitterxx
+❒✗ -twittermp3
+❒✗ -tiktok
+❒✗ -tiktokaudio
+❒✗ -tiktoknowm
+❒✗ -mediafire  
+ *━━━〈  ❤️ Weeb ❤️  〉━━━*
+❒✗ -crosplay
+❒✗ -waifu
+❒✗ -loli
+❒✗ -neko
+❒✗ -ppcouple
+❒✗ -feed
+❒✗ -foxgirl
+❒✗ -feed
+❒✗ -meow
+❒✗ -tickle
+❒✗ -wallpaper
+❒✗ -coffee
+❒✗ -animenom
+❒✗ -waifu3
+❒✗ -neko2
+❒✗ -feed
+❒✗ -meow
+❒✗ -tickle
+❒✗ -awoo
+❒✗ -animewallpaper2
+❒✗ -anime
+❒✗ -manga
+ *━━━〈  ✨ Text Maker ✨  〉━━━*
+❒✗ -candy
+❒✗ -christmas
+❒✗ -3Dchristmas
+❒✗ -sparklechristmas
+❒✗ -deepsea
+❒✗ -scifi
+❒✗ -rainbow
+❒✗ -waterpipe
+❒✗ -spooky
+❒✗ -pencil
+❒✗ -circuit
+❒✗ -discovery
+❒✗ -metalic
+❒✗ -fiction
+❒✗ -demon
+❒✗ -transformar
+❒✗ -berry
+❒✗ -thunder 
+❒✗ -Magma
+❒✗ -3Dstone
+❒✗ -neonlight
+❒✗ -glitch
+❒✗ -harrypotter
+❒✗ -broken glass
+❒✗ -papercut
+❒✗ -watercolour
+❒✗ -multicolour
+❒✗ -neondevil
+❒✗ -underwater
+❒✗ -graffitibike
+❒✗ -snow
+❒✗ -cloud
+❒✗ -honey
+❒✗ -ice
+❒✗ -fruitjuice
+❒✗ -biscuit 
+❒✗ -wood
+❒✗ -chocolate
+❒✗ -strawberry
+❒✗ -matrix
+❒✗ -blood
+❒✗ -dropwater
+❒✗ -toxic
+❒✗ -lava
+❒✗ -rock
+❒✗ -bloodglas
+❒✗ -hallowen
+❒✗ -darkgold
+❒✗ -joker
+❒✗ -wicker
+❒✗ -firework
+❒✗ -skeleton
+❒✗ -blackpink
+❒✗ -sand
+❒✗ -glue
+❒✗ -1917
+ *━━━〈  🧮 Informative 🧮  〉━━━*
+❒✗ -quotesimagexxx
+❒✗ -animequote
+❒✗ -quote
+❒✗ -covid
+❒✗ -earthquake
+❒✗ -wiki
+ *━━━〈  ☕ Others ☕  〉━━━*
+❒✗ -stickermeme
+❒✗ -quotes
+❒✗ -darkjoke 
+ *━━━〈  💃 Fun 💃  〉━━━*
+❒✗ -emojimix
+❒✗ -reaction
+❒✗ -truth
+❒✗ -dare
+❒✗ -couple
+❒✗ -soulmate
+❒✗ -handsomecheck
+❒✗ -beautifulcheck
+❒✗ -awesomecheck
+❒✗ -greatcheck
+❒✗ -gaycheck
+❒✗ -cutecheck
+❒✗ -lesbiancheck
+❒✗ -hornycheck
+❒✗ -prettycheck
+❒✗ -lovelycheck
+❒✗ -uglycheck
+❒✗ -charactercheck
  *━━━〈  🪁 Essentials 🪁  〉━━━*
+❒✗ -qr
+❒✗ -say
+❒✗ -translate
+❒✗ -fliptext
+❒✗ -toletter
+ *━━━〈  🤤 NSFW 🤤  〉━━━*
+❤️ To use *NSFW* commands, ask to *Admin* or *Owner* 
+❤️ Type *-nsfw* for NSFW commands.
+❤️ Then type " *${prefix}nsfwmenu* " to get full list of NSFW commands.
+ 『  𝓐𝔂𝓷𝓪 𝓫𝔂 𝓒𝓱𝓮𝔂  』
+ Powered by : *ᥴꫝꫀꪗ-𝙎𝙖𝙣💫🌙✨❤️*
+ Using by       : *${pushname}*`    
 
-qr, say, translate, fliptext, toletter
-
- *━━━〈  💥 NSFW 💥  〉━━━*
-
-🍁 Type " *${prefix}nsfw* " then enable NSFW (Admin only!) 
-
-🍁 Then type " *${prefix}nsfwmenu* " to get full list of NSFW commands.
-
-
-
-
- 『  *${global.BotName}*  』
- Powered by: *Fantox*
-
- 🔰 To use any of these commands type 
- " *${prefix}<Command name>* ".
- 
- 🔰 To get Support Group link type " *${prefix}support* ".
-
- 🔰 Type " *${prefix}help* " to get full command list.`
-    
-
- let buttonshelpm = [
-    {buttonId: `-owner`, buttonText: {displayText: 'Bot Owner'}, type: 1}
-    ]
+ let buttonshelpm = [{buttonId: `${prefix}owner`, buttonText: {displayText: `❤️owner❤️`}, type: 1},
+		     {buttonId: `${prefix}tagall`, buttonText: {displayText: `Tag all ✨`}, type: 1},
+                     {buttonId: `${prefix}antilinkall`, buttonText: {displayText: `Antilink 🐦`}, type: 1}       	     
+		    ]
                 let buttonMessage = {
                     video:fs.readFileSync('./system/miku2.mp4'),gifPlayback:true,
                     caption: helpmenu,
@@ -4845,7 +5274,204 @@ qr, say, translate, fliptext, toletter
             Miku.sendMessage(m.chat, buttonMessage,{ quoted:m })
                 }
 break
+
+case 'alive':
+    if(isCmd){
+    if (isBan) return reply(mess.banned)	 			
+    if (isBanChat) return reply(mess.bangc)
+
+      mikupic ='https://wallpapercave.com/wp/wp10524580.jpg'
+    
+        
+ const txt = `Hey ${pushname} Baby 😚,\n\n❒✗ - *${global.BotName} is online❤️* ,\n\n🍓 Type *-help* for my full commands. `
+     
+         let butRun = [
+                {buttonId: `-owner`, buttonText: {displayText: '❤️ 𝘖𝘸𝘯𝘦𝘳 ❤️'}, type: 1},
+                {buttonId: `-me`, buttonText: {displayText: '𝘈𝘣𝘰𝘶𝘵 𝘵𝘩𝘪𝘴 𝘶𝘴𝘦𝘳 🥵'}, type: 1},      
+                {buttonId: `-menu`, buttonText: {displayText: '🍓 𝘔𝘦𝘯𝘶 🍓'}, type: 1}
+                ]
+                let buttonMessage = {
+                    video:fs.readFileSync('./system/miku.mp4'),gifPlayback:true,
+                    caption: txt,
+                    footer: `${global.BotName}`,
+                    buttons: butRun,
+                    headerType: 4
+                }
+            Miku.sendMessage(m.chat,buttonMessage,{quoted:m})
+                }
+break
  
+case 'groupmenu':
+    if(isCmd){
+    if (isBan) return reply(mess.banned)	 			
+    if (isBanChat) return reply(mess.bangc)
+
+      mikupic ='https://wallpapercave.com/wp/wp10524580.jpg'
+    
+        
+ const needhelpmenu = `╭╼━᚜ 𝓐𝔂𝓷𝓪 𝓫𝔂 𝓒𝓱𝓮𝔂 ᚛━╾╮
+│                                      ❒
+🔥 *My prefix*       : ( - )
+❤️ *My name*       : ${global.BotName}
+🥵 *User name*    : ${pushname}
+😻 *Bot speed*     : ${latensie.toFixed(4)} ms
+🎃 *Owner name* : ${global.OwnerName}
+🍓 *Group name*  : ${groupMetadata.subject}
+│                                      ❒
+╰╼━━━━━━━━━━━━╾╯
+╭╼━᚜ 𝓐𝔂𝓷𝓪 𝓫𝔂 𝓒𝓱𝓮𝔂 ᚛━╾╮
+╽                                     🎃
+┃
+❒✗ -deletethis  *( any msg )*
+❒✗ -promote
+❒✗ -demote
+❒✗ -revoke
+❒✗ -add
+❒✗ -remove
+❒✗ -tagall
+❒✗ -hidetag
+❒✗ -afk  *( type reason )*
+❒✗ -grouplink
+❒✗ -setgcpp
+❒✗ -setname
+❒✗ -setdesc
+❒✗ -group  *( open/close )*
+❒✗ -antivirus
+❒✗ -antitoxic
+╿                                     
+╰╼⟨ ${pushname} ⟩╾⟢ `
+     
+         let butRun = [
+                {buttonId: `-owner`, buttonText: {displayText: '❤️ 𝘖𝘸𝘯𝘦𝘳 ❤️'}, type: 1},
+                {buttonId: `-funmenu`, buttonText: {displayText: 'Fun menu 😂'}, type: 1},      
+                {buttonId: `-menu`, buttonText: {displayText: '🍓 𝘔𝘦𝘯𝘶 🍓'}, type: 1}
+                ]
+                let buttonMessage = {
+                    video:fs.readFileSync('./system/Group.mp4'),gifPlayback:true,
+                    caption: needhelpmenu,
+                    footer: `${global.BotName}`,
+                    buttons: butRun,
+                    headerType: 4
+                }
+            Miku.sendMessage(m.chat,buttonMessage,{quoted:m})
+                }
+break
+
+case 'ownermenu':
+    if(isCmd){
+    if (isBan) return reply(mess.banned)	 			
+    if (isBanChat) return reply(mess.bangc)
+
+      mikupic ='https://wallpapercave.com/wp/wp10524580.jpg'
+    
+        
+ const txt = `╭╼━᚜ 𝓐𝔂𝓷𝓪 𝓫𝔂 𝓒𝓱𝓮𝔂 ᚛━╾╮
+│                                      ❒
+🔥 *My prefix*       : ( - )
+❤️ *My name*       : ${global.BotName}
+🥵 *User name*    : ${pushname}
+😻 *Bot speed*     : ${latensie.toFixed(4)} ms
+🎃 *Owner name* : ${global.OwnerName}
+🍓 *Group name*  : ${groupMetadata.subject}
+│                                      ❒
+╰╼━━━━━━━━━━━━╾╯
+╭╼━᚜ 𝓐𝔂𝓷𝓪 𝓫𝔂 𝓒𝓱𝓮𝔂 ᚛━╾╮
+╽                                     🎃
+┃
+❒✗ -alive  *( bot working? )*
+❒✗ -speak
+❒✗ -${global.BotName} 
+❒✗ -calculator 
+❒✗ -stalk
+❒✗ -profile
+❒✗ -help
+❒✗ -listgc
+❒✗ -listpc
+❒✗ -support
+❒✗ -script
+❒✗ -botgroups 
+╿                                     
+╰╼⟨ ${pushname} ⟩╾⟢ `
+     
+         let butRun = [
+                {buttonId: `-owner`, buttonText: {displayText: '❤️ 𝘖𝘸𝘯𝘦𝘳 ❤️'}, type: 1},
+                {buttonId: `-animemenu`, buttonText: {displayText: 'Anime menu 🥵'}, type: 1},      
+                {buttonId: `-menu`, buttonText: {displayText: '🍓 𝘔𝘦𝘯𝘶 🍓'}, type: 1}
+                ]
+                let buttonMessage = {
+                    video:fs.readFileSync('./system/Owner.mp4'),gifPlayback:true,
+                    caption: txt,
+                    footer: `${global.BotName}`,
+                    buttons: butRun,
+                    headerType: 4
+                }
+            Miku.sendMessage(m.chat,buttonMessage,{quoted:m})
+                }
+break
+
+case 'antilinkmenu':
+    if(isCmd){
+    if (isBan) return reply(mess.banned)	 			
+    if (isBanChat) return reply(mess.bangc)
+
+      mikupic ='https://wallpapercave.com/wp/wp10524580.jpg'
+    
+        
+ const txt = `╭╼━᚜ 𝓐𝔂𝓷𝓪 𝓫𝔂 𝓒𝓱𝓮𝔂 ᚛━╾╮
+│                                      ❒
+🔥 *My prefix*       : ( - )
+❤️ *My name*       : ${global.BotName}
+🥵 *User name*    : ${pushname}
+😻 *Bot speed*     : ${latensie.toFixed(4)} ms
+🎃 *Owner name* : ${global.OwnerName}
+🍓 *Group name*  : ${groupMetadata.subject}
+│                                      ❒
+╰╼━━━━━━━━━━━━╾╯
+╭╼━᚜ 𝓐𝔂𝓷𝓪 𝓫𝔂 𝓒𝓱𝓮𝔂 ᚛━╾╮
+╽                                     🎃
+┃
+❒✗ -antilinkgc
+❒✗ -antilinktg
+❒✗ -antilinktt
+❒✗ -antilinkytch
+❒✗ -antilinkytvid
+❒✗ -antilinkig
+❒✗ -antilinkfb
+❒✗ -antilinktwit
+❒✗ -antilinkall
+❒✗ -antiwame
+╿                                     
+╰╼⟨ ${pushname} ⟩╾⟢ `
+     
+         let butRun = [
+                {buttonId: `-owner`, buttonText: {displayText: '❤️ 𝘖𝘸𝘯𝘦𝘳 ❤️'}, type: 1},
+                {buttonId: `-funmenu`, buttonText: {displayText: 'Fun menu 😂'}, type: 1},      
+                {buttonId: `-menu`, buttonText: {displayText: '🍓 𝘔𝘦𝘯𝘶 🍓'}, type: 1}
+                ]
+                let buttonMessage = {
+                    video:fs.readFileSync('./system/Antilink.mp4'),gifPlayback:true,
+                    caption: txt,
+                    footer: `${global.BotName}`,
+                    buttons: butRun,
+                    headerType: 4
+                }
+            Miku.sendMessage(m.chat,buttonMessage,{quoted:m})
+                }
+break
+
+/*case '':
+    if (isBan) return reply(mess.banned)	 			
+    if (isBanChat) return reply(mess.bangc)
+const txts = `Hey ${pushname} Darling❤️, \nI'm online.`
+const mikuarray= [
+            "https://c.tenor.com/hjL3MnIsB88AAAPo/marin-kitagawa-kitagawa-marin.mp4"           
+            ]
+        
+            const mikuselection = mikuarray[Math.floor(Math.random()*mikuarray.length)]
+        
+            Miku.sendMessage(from,{video:{url:mikuselection},gifPlayback:true,caption:txts},{quoted:m})
+break*/
+
 
 case '':
     if(isCmd){
@@ -4873,62 +5499,238 @@ break
 
 
 
-case 'miku':
+case 'Anya':
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
 
-const txt = `Do you love Miku? Then we are the same.`
-const mikuarray= [
+const txt = `Do you love *${global.Botname}?* Then we are the same.`
+const Nexusarray= [
+            "https://c.tenor.com/hjL3MnIsB88AAAPo/marin-kitagawa-kitagawa-marin.mp4",
             "https://c.tenor.com/SOeIW-QVZvoAAAPo/scared-the-quintessential-quintuplets.mp4",
             "https://c.tenor.com/FDe7lTs0xvMAAAPo/miku-nakano-nakano-miku.mp4",
             "https://c.tenor.com/IWKYIP6AMIgAAAPo/miku-nakano-the-quintessential-quintuplets.mp4",
             "https://c.tenor.com/qE3H_Ae_jTQAAAPo/miku-nakano-nakano.mp4",
             "https://c.tenor.com/9ijVngbm_ZMAAAPo/itsuki-nakano-the-quintessential-quintuplets.mp4",
             "https://c.tenor.com/Fz9xGVR_FHAAAAPo/miku-nakano-nakano-miku.mp4",
-            "https://c.tenor.com/ALV6SZoJZb8AAAPo/gotoubun-corada.mp4",
-            "https://c.tenor.com/QHefpWiqvN4AAAPo/blush-anime.mp4",
-            "https://c.tenor.com/NJVFjOYEcsIAAAPo/miku-gotoubun.mp4",
-            "https://c.tenor.com/DA88NW5x_0wAAAPo/miku-nakano-stare.mp4",
-            "https://c.tenor.com/zNTH_-ks3GEAAAPo/miku-nakano.mp4",
-            "https://c.tenor.com/V9XEKQYRwrEAAAPo/miku-nakano-the-quintessential-quintuplets.mp4",
-            "https://c.tenor.com/GDH4WFhELpAAAAPo/anime-pout.mp4",
-            "https://c.tenor.com/ME0cvLQiW0kAAAPo/nakano-miku-go-toubun-no-hanayome.mp4",
-            "https://c.tenor.com/d5pE_0GJUf0AAAPo/miku-nakano.mp4",
-            "https://c.tenor.com/zNTH_-ks3GEAAAPo/miku-nakano.mp4",
-            "https://c.tenor.com/pCgBkgDBbnIAAAPo/nakano-miku-go-toubun-no-hanayome.mp4",
-            "https://c.tenor.com/6GTU3JEtpKoAAAPo/miku-nakano-the-quintessential-quintuplets.mp4",
-            "https://c.tenor.com/XNbmenhVucMAAAPo/5toubun-no-hanayome-gotoubun-no-hanayome.mp4",
-            "https://c.tenor.com/lyMqrhEK4scAAAPo/%EC%98%A4%EB%93%B1%EB%B6%84-5%EB%93%B1%EB%B6%84.mp4",
-            "https://c.tenor.com/vQ9TpmdjfWAAAAPo/cuteness-overload.mp4",
-            "https://c.tenor.com/PHngM6-NJVwAAAPo/miku-quintessential.mp4",
-            "https://c.tenor.com/yniTgeiOo4gAAAPo/miku-nakano.mp4",
-            "https://c.tenor.com/AULffc4ZKFIAAAPo/miku-god-miku.mp4",
-            "https://c.tenor.com/Y8Y1GbmQSOIAAAPo/miku-nakano-quintessential-quintuplets.mp4",
-            "https://c.tenor.com/m0EjrelpOfkAAAPo/miku-nakano-nakano-miku.mp4",
-            "https://c.tenor.com/x6RTarQTMzoAAAPo/miku-nakano.mp4",
-            "https://c.tenor.com/hUzZGMltInkAAAPo/gotoubun-corada.mp4",
-            "https://c.tenor.com/9-7azOBpr84AAAPo/miku-nakano-and-i-love-you.mp4",
-            "https://c.tenor.com/Ed5IC_yxZkoAAAPo/miku-nakano-gotoubun-no-hanayome.mp4",
-            "https://c.tenor.com/hDKieuZGiU0AAAPo/miku-nakano.mp4",
-            "https://c.tenor.com/WD8L3QLO024AAAPo/whaatt-the-quintessential-quintuplets.mp4"
+            "https://c.tenor.com/ALV6SZoJZb8AAAPo/gotoubun-corada.mp4"
             
             ]
         
-            const mikuselection = mikuarray[Math.floor(Math.random()*mikuarray.length)]
+            const Nexusselection = Nexusarray[Math.floor(Math.random()*Nexusarray.length)]
         
-            Miku.sendMessage(from,{video:{url:mikuselection},gifPlayback:true,caption:txt},{quoted:m})
+            Miku.sendMessage(from,{video:{url:Nexusselection},gifPlayback:true,caption:txt},{quoted:m})
 
 break
+
+case 'checknumber':
+  reply(mess.wait)
+  const dripska = {
+    method: 'GET',
+    url: 'https://phonenumbervalidatefree.p.rapidapi.com/ts_PhoneNumberValidateTest.jsp',
+    qs: {number: `${text}`},
+    headers: {
+      'X-RapidAPI-Key': '837661b454msh274b6753ca80823p11c653jsn973bb2a55a34',
+      'X-RapidAPI-Host': 'phonenumbervalidatefree.p.rapidapi.com',
+      useQueryString: true
+    }
+  };
+  let dhidhi = require('request')
+  dhidhi(dripska, function (error, response, body) {
+    if (error) throw new Error(error);
+    reply(body);
+    console.log(body);
+  });
+break
+
 
 case 'add':{     			
     if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
  if (users.length == 0) return replay(`Please write the number of the person you want to add to thhis group`)
-  await Miku.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => replay(`User Added Successfully!`)).catch((err) => replay(`Cannot add that user to this group!`))
+  await Miku.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => replay(`User Added Successfully in this group by ${global.BotName} !`)).catch((err) => replay(`Cannot add that user to this group!`))
  }
  break
 
+   case 'foolish':
+      case 'smart':
+      case 'idiot':
+      case 'gay':
+      case 'lesbi':
+      case 'bastard':
+      case 'stubble':
+      case 'dog':
+      case 'fuck':
+      case 'ape':
+      case 'noob':
+      case 'great':
+      case 'horny':
+      case 'wibu':
+      case 'asshole':
+      case 'handsome':
+      case 'beautiful':
+      case 'cute':
+      case 'kind':
+      case 'ugly':
+      case 'pretty':
+      case 'lesbian':
+      case 'randi':
+      case 'gandu':
+      case 'madarchod':
+      case 'kala':
+      case 'gora':
+      case 'chutiya':
+      case 'nibba':
+      case 'nibbi':
+      case 'bhosdiwala':
+      case 'chutmarika':
+      case 'bokachoda':
+      case 'stupid':
+      case 'suarerbaccha':
+      case 'bolochoda':
+      case 'muthal':
+      case 'muthbaaz':
+      case 'randibaaz':
+      case 'topibaaz':
+      case 'cunt':
+      case 'nerd':
+      case 'behenchod':
+      case 'behnchoda':
+      case 'bhosdika':
+      case 'nerd':
+      case 'mc':
+      case 'bsdk':
+      case 'bhosdk':
+      case 'nigger':
+      case 'loda':
+      case 'laund':
+      case 'nigga':
+      case 'noobra':
+      case 'tharki':
+      case 'nibba':
+      case 'nibbi':
+      case 'mumu':
+      case 'rascal':
+      case 'scumbag':
+      case 'nuts':
+      case 'comrade':
+      case 'fagot':
+      case 'scoundrel':
+      case 'ditch':
+      case 'dope':
+      case 'gucci':
+      case 'lit':
+      case 'dumbass':
+      case 'sexy':
+      case 'crackhead':
+      case 'mf':
+      case 'motherfucker':
+      case 'dogla':
+      case 'bewda':
+      case 'boka':
+      case 'khanki':
+      case 'bal':
+      case 'sucker':
+      case 'fuckboy':
+      case 'playboy':
+      case 'fuckgirl':
+      case 'playgirl':
+      case 'bc':
+      case 'hot': {
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+if (!m.isGroup) return replay(`${mess.grouponly}`)
+let member = participants.map(u => u.id)
+let orang = member[Math.floor(Math.random() * member.length)]
+let jodoh = member[Math.floor(Math.random() * member.length)]
+let jawab = `${global.BotName} got your answer ${pushname}✨.
+*The most ${command} here is @${jodoh.split('@')[0]}* 🐦.`
+let menst = [orang, jodoh]
+let buttons = [
+{buttonId: `-congratulations`, buttonText: { displayText: '❤️ Congratulations ❤️' }, type: 1 },
+{buttonId: `-me`, buttonText: {displayText: 'My profile 🥵'}, type: 1}
+]
+await Miku.sendButtonText(m.chat, buttons, jawab, Miku.user.name, m, {mentions: menst})
+}
+break
+
+case 'candy': case 'christmas': case '3dchristmas': case 'sparklechristmas':
+case 'deepsea': case 'scifi': case 'rainbow': case 'waterpipe': case 'spooky': 
+case 'pencil': case 'circuit': case 'discovery': case 'metalic': case 'fiction': case 'demon': 
+case 'transformer': case 'berry': case 'thunder': case 'magma': case '3dstone': 
+case 'neonlight': case 'glitch': case 'harrypotter': case 'brokenglass': case 'papercut': 
+case 'watercolor': case 'multicolor': case 'neondevil': case 'underwater': case 'graffitibike':
+ case 'snow': case 'cloud': case 'honey': case 'ice': case 'fruitjuice': case 'biscuit': case 'wood': 
+case 'chocolate': case 'strawberry': case 'matrix': case 'blood': case 'dropwater': case 'toxic': 
+case 'lava': case 'rock': case 'bloodglas': case 'hallowen': case 'darkgold': case 'joker': case 'wicker':
+ case 'firework': case 'skeleton': case 'blackpink': case 'sand': case 'glue': case '1917': case 'leaves': case 'pornhub': case 'retro': case 'horror': {
+              if (!q) return reply(`🎃 *You have to type this command with a word* .\n\n❤️ *Example* : ${prefix + command} ${pushname}`) 
+          
+             let link
+             if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'
+             if (/christmas/.test(command)) link = 'https://textpro.me/christmas-tree-text-effect-online-free-1057.html'
+             if (/3dchristmas/.test(command)) link = 'https://textpro.me/3d-christmas-text-effect-by-name-1055.html'
+             if (/sparklechristmas/.test(command)) link = 'https://textpro.me/sparkles-merry-christmas-text-effect-1054.html'
+             if (/deepsea/.test(command)) link = 'https://textpro.me/create-3d-deep-sea-metal-text-effect-online-1053.html'
+             if (/scifi/.test(command)) link = 'https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html'
+             if (/rainbow/.test(command)) link = 'https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html'
+             if (/waterpipe/.test(command)) link = 'https://textpro.me/create-3d-water-pipe-text-effects-online-1048.html'
+             if (/spooky/.test(command)) link = 'https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html'
+             if (/pencil/.test(command)) link = 'https://textpro.me/create-a-sketch-text-effect-online-1044.html'
+             if (/circuit/.test(command)) link = 'https://textpro.me/create-blue-circuit-style-text-effect-online-1043.html'
+             if (/discovery/.test(command)) link = 'https://textpro.me/create-space-text-effects-online-free-1042.html'
+             if (/metalic/.test(command)) link = 'https://textpro.me/creat-glossy-metalic-text-effect-free-online-1040.html'
+             if (/fiction/.test(command)) link = 'https://textpro.me/create-science-fiction-text-effect-online-free-1038.html'
+             if (/demon/.test(command)) link = 'https://textpro.me/create-green-horror-style-text-effect-online-1036.html'
+             if (/transformer/.test(command)) link = 'https://textpro.me/create-a-transformer-text-effect-online-1035.html'
+             if (/berry/.test(command)) link = 'https://textpro.me/create-berry-text-effect-online-free-1033.html'
+             if (/thunder/.test(command)) link = 'https://textpro.me/online-thunder-text-effect-generator-1031.html'
+             if (/magma/.test(command)) link = 'https://textpro.me/create-a-magma-hot-text-effect-online-1030.html'
+             if (/3dstone/.test(command)) link = 'https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html'
+             if (/neonlight/.test(command)) link = 'https://textpro.me/create-3d-neon-light-text-effect-online-1028.html'
+             if (/glitch/.test(command)) link = 'https://textpro.me/create-impressive-glitch-text-effects-online-1027.html'
+             if (/harrypotter/.test(command)) link = 'https://textpro.me/create-harry-potter-text-effect-online-1025.html'
+             if (/brokenglass/.test(command)) link = 'https://textpro.me/broken-glass-text-effect-free-online-1023.html'
+             if (/papercut/.test(command)) link = 'https://textpro.me/create-art-paper-cut-text-effect-online-1022.html'
+             if (/watercolor/.test(command)) link = 'https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html'
+             if (/multicolor/.test(command)) link = 'https://textpro.me/online-multicolor-3d-paper-cut-text-effect-1016.html'
+             if (/neondevil/.test(command)) link = 'https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html'
+             if (/underwater/.test(command)) link = 'https://textpro.me/3d-underwater-text-effect-generator-online-1013.html'
+             if (/graffitibike/.test(command)) link = 'https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html'
+             if (/snow/.test(command)) link = 'https://textpro.me/create-snow-text-effects-for-winter-holidays-1005.html'
+             if (/cloud/.test(command)) link = 'https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html'
+             if (/honey/.test(command)) link = 'https://textpro.me/honey-text-effect-868.html'
+             if (/ice/.test(command)) link = 'https://textpro.me/ice-cold-text-effect-862.html'
+             if (/fruitjuice/.test(command)) link = 'https://textpro.me/fruit-juice-text-effect-861.html'
+             if (/biscuit/.test(command)) link = 'https://textpro.me/biscuit-text-effect-858.html'
+             if (/wood/.test(command)) link = 'https://textpro.me/wood-text-effect-856.html'
+             if (/chocolate/.test(command)) link = 'https://textpro.me/chocolate-cake-text-effect-890.html'
+             if (/strawberry/.test(command)) link = 'https://textpro.me/strawberry-text-effect-online-889.html'
+             if (/matrix/.test(command)) link = 'https://textpro.me/matrix-style-text-effect-online-884.html'
+             if (/blood/.test(command)) link = 'https://textpro.me/horror-blood-text-effect-online-883.html'
+             if (/dropwater/.test(command)) link = 'https://textpro.me/dropwater-text-effect-872.html'
+             if (/toxic/.test(command)) link = 'https://textpro.me/toxic-text-effect-online-901.html'
+             if (/lava/.test(command)) link = 'https://textpro.me/lava-text-effect-online-914.html'
+             if (/rock/.test(command)) link = 'https://textpro.me/rock-text-effect-online-915.html'
+             if (/bloodglas/.test(command)) link = 'https://textpro.me/blood-text-on-the-frosted-glass-941.html'
+             if (/hallowen/.test(command)) link = 'https://textpro.me/halloween-fire-text-effect-940.html'
+             if (/darkgold/.test(command)) link = 'https://textpro.me/metal-dark-gold-text-effect-online-939.html'
+             if (/joker/.test(command)) link = 'https://textpro.me/create-logo-joker-online-934.html'
+             if (/wicker/.test(command)) link = 'https://textpro.me/wicker-text-effect-online-932.html'
+             if (/firework/.test(command)) link = 'https://textpro.me/firework-sparkle-text-effect-930.html'
+             if (/skeleton/.test(command)) link = 'https://textpro.me/skeleton-text-effect-online-929.html'
+             if (/blackpink/.test(command)) link = 'https://textpro.me/create-blackpink-logo-style-online-1001.html'
+             if (/sand/.test(command)) link = 'https://textpro.me/write-in-sand-summer-beach-free-online-991.html'
+             if (/glue/.test(command)) link = 'https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html'
+             if (/1917/.test(command)) link = 'https://textpro.me/1917-style-text-effect-online-980.html'
+             if (/pornhub/.test(command)) link = 'https://textpro.me/pornhub-style-logo-online-generator-free-977.html'   
+             if (/horror/.test(command)) link = 'https://textpro.me/create-a-cinematic-horror-text-effect-1045.html'
+             if (/retro/.test(command)) link = 'https://textpro.me/create-3d-retro-text-effect-online-free-1065.html'                              
+                if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'
+             let anu = await maker.textpro(link, q)
+                Miku.sendMessage(m.chat, { image: { url: anu }, caption: `_Here is your text style ${pushname} baby_ .\n_Made by ${global.BotName}_ ❤️` }, { quoted: m })
+             }
+             break
 
  case "tts":  case "texttospeech":  case "say": case "speak":{
     if (isBan) return reply(mess.banned)	 			
