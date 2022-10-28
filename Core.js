@@ -213,7 +213,36 @@ const isQuotedAudio = m.mtype === 'extendedTextMessage' && content.includes('aud
 const mongoose = require("mongoose");
 
 
-/*
+//bgm code//
+for (let nexus of vien){
+    if (budy == nexus){
+	    result = fs.readFileSync(`./Anymedia/Audio.auto/${nexus}.mp3`)
+	    Miku.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4' , ptt: true }, { quoted: m})
+	}
+	} 
+
+for (let nexus of setik){
+    if (budy === nexus){
+	    result = fs.readFileSync(`./Anymedia/Sticker.auto/${nexus}.webp`)
+            Miku.sendMessage(m.chat, { sticker: result }, { quoted: m })
+  	}						 
+	}
+
+//if (Autoreply) //remove forwad slashes to make it autoreply on off
+for (let nexus of imagi){
+    if (budy === nexus){
+ 	    result = fs.readFileSync(`./Anymedia/${nexus}.jpg`)
+	    Miku.sendMessage(m.chat, { image: result }, { quoted: m })
+	}
+	}
+
+//if (Autoreply) //remove forwad slashes to make it autoreply on off
+for (let nexus of videox){
+    if (budy === nexus){
+	    result = fs.readFileSync(`./Anymedia/${nexus}.mp4`)
+	    Miku.sendMessage(m.chat, { video: result }, { quoted: m })
+	}
+        } 	
 
 /////////// -  DM chatbot (Delete this part to turn off DM Chat Bot) - //////////////////
 
@@ -1362,7 +1391,7 @@ const ftroli = {
     
     Type *-menu* or press any button below to start using *${global.BotName}*
     
-    ©️ *${global.BotName}* All Rights Reserved by: *Fantox*
+    ©️ *${global.BotName}* All Rights Reserved by: *Chey❣️*
     `
         const qtod = m.quoted? "true":"false"
         
@@ -1381,7 +1410,8 @@ switch(command) {
     if (isBanChat) return reply(mess.bangc)
     teks = `*${global.BotName}'s Script*\n\n*GitHub*: ${global.BotSourceCode}\n\nDont forget to follow me on *GitHub* and give a ⭐️ to my projects. `
     let buttons = [
-    {buttonId: `-menu`, buttonText: {displayText: '✨Bot Menu✨'}, type: 1}
+    {buttonId: `-owner`, buttonText: {displayText: `❤️ Owner ❤️`}, type: 1},
+    {buttonId: `-menu`, buttonText: {displayText: `🍓 Menu 🍓`}, type: 1}
     ]
     let buttonMessage = {
     image: Thumb,
@@ -1391,7 +1421,7 @@ switch(command) {
     buttons: buttons,
     headerType: 4,
     /*contextInfo:{externalAdReply:{
-    title:"Powered by Fantox",
+    title:"Powered by Chey",
     body: " ", 
     thumbnail: fs.readFileSync("Assets/pic2.jpg"),
     mediaType:1,
@@ -1405,7 +1435,7 @@ switch(command) {
     break
 
 
-case 'me': case 'profile': case 'p':
+case 'me': case 'profile': case 'myprofile':
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
   if (!isDarah){ addInventoriDarah(m.sender, DarahAwal) }
@@ -1427,12 +1457,23 @@ case 'me': case 'profile': case 'p':
       pfp ='https://wallpapercave.com/wp/wp10524580.jpg'
     }
 
-     const profilexx = `*「  Profile Info  」*\n\n*User Name* : ${pushname}\n*Bio* : ${bioo}\n*Group Admin Status* : ${adn}\n*Level* : ${levelMenu}\n*Exp* : ${xpMenu} out of ${reqXp}\n*Role* : ${role}`
+     const profilexx = `💝 *USER PROFILE* 💝 
+╭╼━━━᚜𝓤𝓼𝓮𝓻 𝓲𝓷𝓯𝓸. ᚛━━━╾╮
+╽
+🥵 *Your name* : ${pushname}
+🐤 *Bio* : ${bioo}
+🎃 *Group name* : ${groupMetadata.subject}
+❤️ *Group admin?* : ${adn}
+🔥 *Bot name* : ${global.BotName}
+╰╼━━━━━━━━━━━━━╾╯ 
+Please choose the buttons below to use *more commands*. ✨`
  
 
 
 let buttonspro = [
-    {buttonId: `-soulmate`, buttonText: {displayText: 'Your Soulmate'}, type: 1}
+    {buttonId: `-soulmate`, buttonText: {displayText: `My soulmate 😚`}, type: 1},
+    {buttonId: `-menu`, buttonText: {displayText: `🍓 Menu 🍓`}, type: 1},
+    {buttonId: `-voice`, buttonText: {displayText: `Voices 👻`}, type: 1}
     ]
             let buttonMessage = {
                 image: { url: pfp },
