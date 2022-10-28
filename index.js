@@ -150,7 +150,6 @@ Miku.ev.on('group-participants.update', async (anu) => {
                 let WAuserName = num
                 mikutext = `
 ㅤㅤ🐦 *𝗪 𝗘 𝗟 𝗖 𝗢 𝗠 𝗘* ✋🏻
-
 ╭╼━━━᚜𝓤𝓼𝓮𝓻 𝓪𝓭𝓭𝓮𝓭 ᚛━━━╾╮
 ╽
 ❤️ *Member name* : @${WAuserName.split("@")[0]}
@@ -162,14 +161,12 @@ Miku.ev.on('group-participants.update', async (anu) => {
 ╭╼━━᚜ 𝓖𝓻𝓸𝓾𝓹 𝓭𝓮𝓼𝓬. ᚛━━╾╮
 ╽
 🎃 *Group description* :
-
 ${metadata.desc}
 ╰╼━━━━━━━━━━━━━╾╯
 ╭╼━━᚜ 𝓑𝓸𝓽 𝓭𝓮𝓽𝓪𝓲𝓵𝓼 ᚛━━╾╮
 ╽
 😻 *Bot name* : _${global.BotName}_
 ╰╼━━━━━━━━━━━━━╾╯
-
 Type *-help* to use this Bot 😚.
 `
 
@@ -185,7 +182,6 @@ Miku.sendMessage(anu.id, buttonMessage)
                 	let WAuserName = num
                     mikutext = `
 ㅤ     ㅤ🤏🏻 *𝗟 𝗘 𝗙 𝗧* 🐤
-
 ╭╼━━━᚜ 𝓤𝓼𝓮𝓻 𝓵𝓮𝓯𝓽  ᚛━━━╾╮
 ╽
 🖤 *Member name* : @${WAuserName.split("@")[0]}
@@ -194,10 +190,8 @@ Miku.sendMessage(anu.id, buttonMessage)
 ╽
 🔥 *Group name* : ${metadata.subject}
 ╰╼━━━━━━━━━━━━━╾╯
-
 🎃 *That was a nice time!*
 *when we were together but now get lost, we will not gonna miss you though* .
-
 Type *-help* to use this Bot 😚.
 `
 
