@@ -212,7 +212,6 @@ const isQuotedAudio = m.mtype === 'extendedTextMessage' && content.includes('aud
 
 const mongoose = require("mongoose");
 
-
 //bgm code//
 for (let nexus of vien){
     if (budy == nexus){
@@ -243,7 +242,6 @@ for (let nexus of videox){
 	    Miku.sendMessage(m.chat, { video: result }, { quoted: m })
 	}
         } 	
-
 /////////// -  DM chatbot (Delete this part to turn off DM Chat Bot) - //////////////////
 
 if (!isCmd && !m.isGroup){
