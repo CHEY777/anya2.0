@@ -245,7 +245,7 @@ for (let nexus of videox){
 /////////// -  DM chatbot (Delete this part to turn off DM Chat Bot) - //////////////////
 
 if (!isCmd && !m.isGroup){
-    const botreply = await axios.get(`http://api.brainshop.ai/get?bid=170291&key=szx7foOVc4tTqqKh&uid=[uid]&msg=[msg]`)
+    const botreply = await axios.get(`http://api.brainshop.ai/get?bid=170291&key=szx7foOVc4tTqqKh&uid=[uid]&msg=[${budy}]`)
     txt = `${botreply.data.cnt}`
     m.reply(txt)
     }
