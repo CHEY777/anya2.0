@@ -3523,11 +3523,36 @@ reply(mess.error)
   Miku.sendMessage(from, { audio: { url: mikutiktokaudio }, mimetype: 'audio/mp4' }, { quoted: m })
  }
 break
+            
 
+case 'music': case 'play': case 'song': case 'ytplay': {
+    if (isBan) return reply(mess.banned)	 			
+ if (isBanChat) return reply(mess.bangc)
+ let yts = require("yt-search")
+ let search = await yts(text)
+ let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
+ let ytvc = await hx.youtube(anu.url)
+ let buttons = [
+ {buttonId: `-ytvd ${ytvc.link}`, buttonText: {displayText: '► Video'}, type: 1},
+ {buttonId: `-ytad ${ytvc.mp3}`, buttonText: {displayText: '♫ Audio'}, type: 1}
+ ]
+ let buttonMessage = {
+ image: { url: anu.thumbnail },
+ caption: `「  _Anya Youtube Player_  」
+*Title :* ${anu.title}
+*Duration :* ${anu.timestamp}
+*Viewers :* ${anu.views}
+*Uploaded :* ${anu.ago}
+*Channel :* ${anu.author.name}
+*Url :* ${anu.url}`,
+ footer: `${global.BotName}`,
+ buttons: buttons,
+ headerType: 4,
 
-
-              
-
+ }
+ Miku.sendMessage(m.chat, buttonMessage, { quoted: m })
+ }
+ break
 
 
  case 'ytad': {
