@@ -1358,8 +1358,8 @@ const ftroli = {
     if (!isInventoriBuruan){ addInventoriBuruan(m.sender) }
 
 
-    const menulist = `
-    Konichiwa ${pushname} dear 👋. I am ${global.BotName}, a bot developed by: Fantox to take your WhatsApp usage into next level.
+   const menulist = `
+    Konichiwa ${pushname} dear 👋. I am ${global.BotName}, a bot developed by: Chey to take your WhatsApp usage into next level.
         
        「 System Info 」
     
@@ -1389,7 +1389,7 @@ const ftroli = {
     
     Type *-menu* or press any button below to start using *${global.BotName}*
     
-    ©️ *${global.BotName}* All Rights Reserved by: *Chey❣️*
+    ©️ *${global.BotName}* All Rights Reserved by: *Chey*
     `
         const qtod = m.quoted? "true":"false"
         
@@ -1399,7 +1399,40 @@ function pickRandom(list) {
 return list[Math.floor(list.length * Math.random())]
 }
 
-           
+//Some special chat replies
+	
+ let smallinput = budy.toLowerCase()
+    if (smallinput.includes('hello')) {
+      reply (`Hello *${pushname}*, I am *${BotName}*. How can i help you?`);
+    } 
+
+    if( smallinput.includes('konichiwa') || smallinput.includes('konochiwa') || smallinput.includes('konichiba') || smallinput.includes('salute')){
+      reply (`Konichiwa *${pushname}*, I am *${BotName}*. How can i help you?`);
+    }
+   
+    if (smallinput=='bot') {
+      reply (`Hello *${pushname}*, I am *${BotName}*, a WhatsApp bot made by *Chey* and currently being hosted by *${OwnerName}*.  type  *${prefix}help* to get my full command list.`);
+    }
+
+    if (smallinput=='lol') {
+        reply (`*XD*`)
+    }
+
+    if (smallinput=='op') {
+        reply (`Hehe`)
+    }
+
+    if (smallinput.includes('good morning') || smallinput.includes('ohayo')) {
+      reply (`Good morning to you too *${pushname}* ☺️. Have a great day 😇.`);
+    }
+
+    if (smallinput.includes('good night')) {
+      reply (`Good night to you too *${pushname}* 😇. Sleep well and sweet dreams.`);
+    }
+
+    if (smallinput.includes('arigato')|| smallinput.includes('arigatou') || smallinput.includes('thank')) {
+      reply (`Mention not *${pushname}* 😇. I am a bot afterall.`);
+    }      
 
 switch(command) {
 	
@@ -1408,8 +1441,7 @@ switch(command) {
     if (isBanChat) return reply(mess.bangc)
     teks = `*${global.BotName}'s Script*\n\n*GitHub*: ${global.BotSourceCode}\n\nDont forget to follow me on *GitHub* and give a ⭐️ to my projects. `
     let buttons = [
-    {buttonId: `-owner`, buttonText: {displayText: `❤️ Owner ❤️`}, type: 1},
-    {buttonId: `-menu`, buttonText: {displayText: `🍓 Menu 🍓`}, type: 1}
+    {buttonId: `${prefix}menu`, buttonText: {displayText: '✨Bot Menu✨'}, type: 1}
     ]
     let buttonMessage = {
     image: Thumb,
@@ -5048,6 +5080,7 @@ case 'allmenu': case 'help':{
 ❒✗ -wallpaper
 ❒✗ -searchgc
 ❒✗ -happymod
+❒✗ -weather
 ❒✗ -wikimedia
 ❒✗ -ringtone
 ❒✗ -anime
@@ -5761,6 +5794,15 @@ case 'lava': case 'rock': case 'bloodglas': case 'hallowen': case 'darkgold': ca
                     })
     break
 
+		 case 'weather':
+        if (isBan) return reply(mess.banned)
+        if (!args[0]) return reply("Enter your location to search weather.")
+         myweather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${args.join(" ")}&units=metric&appid=e409825a497a0c894d2dd975542234b0&language=tr`)
+
+        const weathertext = `           🌤 *Weather Report* 🌤  \n\n🔎 *Search Location:* ${myweather.data.name}\n*💮 Country:* ${myweather.data.sys.country}\n🌈 *Weather:* ${myweather.data.weather[0].description}\n🌡️ *Temperature:* ${myweather.data.main.temp}°C\n❄️ *Minimum Temperature:* ${myweather.data.main.temp_min}°C\n📛 *Maximum Temperature:* ${myweather.data.main.temp_max}°C\n💦 *Humidity:* ${myweather.data.main.humidity}%\n🎐 *Wind:* ${myweather.data.wind.speed} km/h\n`
+        Miku.sendMessage(from, { video: { url: 'https://media.tenor.com/bC57J4v11UcAAAPo/weather-sunny.mp4' }, gifPlayback: true, caption: weathertext }, { quoted: m })
+
+        break
 
 
 default:
