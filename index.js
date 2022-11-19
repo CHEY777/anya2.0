@@ -18,16 +18,16 @@ const { color } = require('./lib/color')
 const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
 
 async function startMiku() {
-console.log(color(figlet.textSync('Miku Bot MD', {
+console.log(color(figlet.textSync('Anya Bot MD', {
 		font: 'Pagga',
 		horizontalLayout: 'default',
 		vertivalLayout: 'default',
 	    width: 80,
 		whitespaceBreak: true
-        }), 'yellow'))
+        }), 'pink'))
 
-console.log(color('\nHello, I am Fantox, the main developer of this bot.\n\nThanks for using: Miku Bot','aqua'))
-console.log(color('\nYou can follow me on GitHub: FantoX001','aqua'))
+console.log(color('\nHello, I am Chey, the main developer of this bot.\n\nThanks for using: Anya Bot','aqua'))
+console.log(color('\nYou can follow me on GitHub: Chey-san','aqua'))
 
     let { version, isLatest } = await fetchLatestBaileysVersion()
     const Miku = MikuConnect({
@@ -190,7 +190,7 @@ Miku.sendMessage(anu.id, buttonMessage)
 ╽
 🔥 *Group name* : ${metadata.subject}
 ╰╼━━━━━━━━━━━━━╾╯
-🎃 *That was a nice time!*
+❣️ *That was a nice time!*
 *when we were together but now get lost, we will not gonna miss you though* .
 Type *-help* to use this Bot 😚.
 `
