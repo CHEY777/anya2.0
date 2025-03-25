@@ -174,7 +174,7 @@ Type *-help* to use this Bot 😚.
                     });
                 } else if (anu.action == 'remove') {
                     let mikutext = `
-ㅤ     ㅤ🤏🏻 *�_L 𝗘 𝗙 𝗧* 🐤
+ㅤ     ㅤ🤏🏻 *𝗟 𝗘 𝗙 𝗧* 🐤
 ╭╼━━━᚜ 𝓤𝓼𝓮𝓻 𝓵𝓮𝓯𝓽  ᚛━━━╾╮
 ╽
 🖤 *Member name* : @${num.split("@")[0]}
@@ -237,11 +237,253 @@ Type *-help* to use this Bot 😚.
         }
     });
 
-    // Message Sending Functions (unchanged for brevity)
+    // Restored Message Sending Functions
+    Miku.send5ButImg = async (jid, text = '', footer = '', img, but = [], thumb = null, options = {}) => {
+        let mediaOptions = { image: img };
+        if (thumb) mediaOptions.jpegThumbnail = thumb;
+        let message = await prepareWAMessageMedia(mediaOptions, { upload: Miku.waUploadToServer });
+        var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
+            templateMessage: {
+                hydratedTemplate: {
+                    imageMessage: message.imageMessage,
+                    "hydratedContentText": text,
+                    "hydratedFooterText": footer,
+                    "hydratedButtons": but
+                }
+            }
+        }), options);
+        Miku.relayMessage(jid, template.message, { messageId: template.key.id });
+    };
+
+    Miku.sendButtonText = (jid, buttons = [], text, footer, quoted = '', options = {}) => {
+        let buttonMessage = {
+            text,
+            footer,
+            buttons,
+            headerType: 2,
+            ...options
+        };
+        Miku.sendMessage(jid, buttonMessage, { quoted, ...options });
+    };
+
     Miku.sendText = (jid, text, quoted = '', options) => Miku.sendMessage(jid, { text: text, ...options }, { quoted });
+
     Miku.sendImage = async (jid, path, caption = '', quoted = '', options) => {
-        let buffer = Buffer.isBuffer(path) ? path : /^https?:\/\//.test(path) ? await getBuffer(path) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0);
+        let buffer = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0);
         return await Miku.sendMessage(jid, { image: buffer, caption: caption, ...options }, { quoted });
+    };
+
+    Miku.sendVideo = async (jid, path, caption = '', quoted = '', gif = false, options) => {
+        let buffer = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0);
+        return await Miku.sendMessage(jid, { video: buffer, caption: caption, gifPlayback: gif, ...options }, { quoted });
+    };
+
+    Miku.sendAudio = async (jid, path, quoted = '', ptt = false, options) => {
+        let buffer = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0);
+        return await Miku.sendMessage(jid, { audio: buffer, ptt: ptt, ...options }, { quoted });
+    };
+
+    Miku.sendTextWithMentions = async (jid, text, quoted, options = {}) => Miku.sendMessage(jid, { text: text, contextInfo: { mentionedJid: [...text.matchAll(/@(\d{0,16})/g)].map(v => v[1] + '@s.whatsapp.net') }, ...options }, { quoted });
+
+    Miku.sendImageAsSticker = async (jid, path, quoted, options = {}) => {
+        let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0);
+        let buffer;
+        if (options && (options.packname || options.author)) {
+            buffer = await writeExifImg(buff, options);
+        } else {
+            buffer = await imageToWebp(buff);
+        }
+        await Miku.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted });
+        return buffer;
+    };
+
+    Miku.sendVideoAsSticker = async (jid, path, quoted, options = {}) => {
+        let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0);
+        let buffer;
+        if (options && (options.packname || options.author)) {
+            buffer = await writeExifVid(buff, options);
+        } else {
+            buffer = await videoToWebp(buff);
+        }
+        await Miku.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted });
+        return buffer;
+    };
+
+    Miku.sendMedia = async (jid, path, fileName = '', caption = '', quoted = '', options = {}) => {
+        let types = await Miku.getFile(path, true);
+        let { mime, ext, res, data, filename } = types;
+        if (res && res.status !== 200 || file.length <= 65536) {
+            try { throw { json: JSON.parse(file.toString()) } }
+            catch (e) { if (e.json) throw e.json }
+        }
+        let type = '', mimetype = mime, pathFile = filename;
+        if (options.asDocument) type = 'document';
+        if (options.asSticker || /webp/.test(mime)) {
+            let { writeExif } = require('./lib/exif');
+            let media = { mimetype: mime, data };
+            pathFile = await writeExif(media, { packname: options.packname ? options.packname : global.packname, author: options.author ? options.author : global.author, categories: options.categories ? options.categories : [] });
+            await fs.promises.unlink(filename);
+            type = 'sticker';
+            mimetype = 'image/webp';
+        } else if (/image/.test(mime)) type = 'image';
+        else if (/video/.test(mime)) type = 'video';
+        else if (/audio/.test(mime)) type = 'audio';
+        else type = 'document';
+        await Miku.sendMessage(jid, { [type]: { url: pathFile }, caption, mimetype, fileName, ...options }, { quoted, ...options });
+        return fs.promises.unlink(pathFile);
+    };
+
+    Miku.downloadAndSaveMediaMessage = async (message, filename, attachExtension = true) => {
+        let quoted = message.msg ? message.msg : message;
+        let mime = (message.msg || message).mimetype || '';
+        let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0];
+        const stream = await downloadContentFromMessage(quoted, messageType);
+        let buffer = Buffer.from([]);
+        for await (const chunk of stream) {
+            buffer = Buffer.concat([buffer, chunk]);
+        }
+        let type = await FileType.fromBuffer(buffer);
+        let trueFileName = attachExtension ? (filename + '.' + type.ext) : filename;
+        await fs.writeFileSync(trueFileName, buffer);
+        return trueFileName;
+    };
+
+    Miku.downloadMediaMessage = async (message) => {
+        let mime = (message.msg || message).mimetype || '';
+        let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0];
+        const stream = await downloadContentFromMessage(message, messageType);
+        let buffer = Buffer.from([]);
+        for await (const chunk of stream) {
+            buffer = Buffer.concat([buffer, chunk]);
+        }
+        return buffer;
+    };
+
+    Miku.copyNForward = async (jid, message, forceForward = false, options = {}) => {
+        let vtype;
+        if (options.readViewOnce) {
+            message.message = message.message && message.message.ephemeralMessage && message.message.ephemeralMessage.message ? message.message.ephemeralMessage.message : (message.message || undefined);
+            vtype = Object.keys(message.message.viewOnceMessage.message)[0];
+            delete (message.message && message.message.ignore ? message.message.ignore : (message.message || undefined));
+            delete message.message.viewOnceMessage.message[vtype].viewOnce;
+            message.message = { ...message.message.viewOnceMessage.message };
+        }
+        let mtype = Object.keys(message.message)[0];
+        let content = await generateForwardMessageContent(message, forceForward);
+        let ctype = Object.keys(content)[0];
+        let context = {};
+        if (mtype != "conversation") context = message.message[mtype].contextInfo;
+        content[ctype].contextInfo = { ...context, ...content[ctype].contextInfo };
+        const waMessage = await generateWAMessageFromContent(jid, content, options ? { ...content[ctype], ...options, ...(options.contextInfo ? { contextInfo: { ...content[ctype].contextInfo, ...options.contextInfo } } : {}) } : {});
+        await Miku.relayMessage(jid, waMessage.message, { messageId: waMessage.key.id });
+        return waMessage;
+    };
+
+    Miku.sendListMsg = (jid, text = '', footer = '', title = '', butText = '', sects = [], quoted) => {
+        let sections = sects;
+        var listMes = {
+            text: text,
+            footer: footer,
+            title: title,
+            buttonText: butText,
+            sections
+        };
+        Miku.sendMessage(jid, listMes, { quoted: quoted });
+    };
+
+    // Restored Miku.cMod
+    Miku.cMod = (jid, copy, text = '', sender = Miku.user.id, options = {}) => {
+        let mtype = Object.keys(copy.message)[0];
+        let isEphemeral = mtype === 'ephemeralMessage';
+        if (isEphemeral) {
+            mtype = Object.keys(copy.message.ephemeralMessage.message)[0];
+        }
+        let msg = isEphemeral ? copy.message.ephemeralMessage.message : copy.message;
+        let content = msg[mtype];
+        if (typeof content === 'string') msg[mtype] = text || content;
+        else if (content.caption) content.caption = text || content.caption;
+        else if (content.text) content.text = text || content.text;
+        if (typeof content !== 'string') msg[mtype] = { ...content, ...options };
+        if (copy.key.participant) sender = copy.key.participant = sender || copy.key.participant;
+        else if (copy.key.participant) sender = copy.key.participant = sender || copy.key.participant;
+        if (copy.key.remoteJid.includes('@s.whatsapp.net')) sender = sender || copy.key.remoteJid;
+        else if (copy.key.remoteJid.includes('@broadcast')) sender = sender || copy.key.remoteJid;
+        copy.key.remoteJid = jid;
+        copy.key.fromMe = sender === Miku.user.id;
+        return proto.WebMessageInfo.fromObject(copy);
+    };
+
+    Miku.getFile = async (PATH, save) => {
+        let res;
+        let data = Buffer.isBuffer(PATH) ? PATH : /^data:.*?\/.*?;base64,/i.test(PATH) ? Buffer.from(PATH.split`,`[1], 'base64') : /^https?:\/\//.test(PATH) ? await (res = await getBuffer(PATH)) : fs.existsSync(PATH) ? (filename = PATH, fs.readFileSync(PATH)) : typeof PATH === 'string' ? PATH : Buffer.alloc(0);
+        let type = await FileType.fromBuffer(data) || { mime: 'application/octet-stream', ext: '.bin' };
+        filename = path.join(__filename, '../src/' + new Date * 1 + '.' + type.ext);
+        if (data && save) fs.promises.writeFile(filename, data);
+        return { res, filename, size: await getSizeMedia(data), ...type, data };
+    };
+
+    Miku.send5ButGif = async (jid, text = '', footer = '', gif, but = [], options = {}) => {
+        let message = await prepareWAMessageMedia({ video: gif, gifPlayback: true }, { upload: Miku.waUploadToServer });
+        var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
+            templateMessage: {
+                hydratedTemplate: {
+                    videoMessage: message.videoMessage,
+                    "hydratedContentText": text,
+                    "hydratedFooterText": footer,
+                    "hydratedButtons": but
+                }
+            }
+        }), options);
+        Miku.relayMessage(jid, template.message, { messageId: template.key.id });
+    };
+
+    Miku.send5ButVid = async (jid, text = '', footer = '', vid, but = [], options = {}) => {
+        let message = await prepareWAMessageMedia({ video: vid }, { upload: Miku.waUploadToServer });
+        var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
+            templateMessage: {
+                hydratedTemplate: {
+                    videoMessage: message.videoMessage,
+                    "hydratedContentText": text,
+                    "hydratedFooterText": footer,
+                    "hydratedButtons": but
+                }
+            }
+        }), options);
+        Miku.relayMessage(jid, template.message, { messageId: template.key.id });
+    };
+
+    Miku.send5ButMsg = (jid, text = '', footer = '', but = []) => {
+        let templateButtons = but;
+        var templateMessage = {
+            text: text,
+            footer: footer,
+            templateButtons: templateButtons
+        };
+        Miku.sendMessage(jid, templateMessage);
+    };
+
+    Miku.sendFile = async (jid, PATH, fileName, quoted = {}, options = {}) => {
+        let types = await Miku.getFile(PATH, true);
+        let { filename, size, ext, mime, data } = types;
+        let type = '', mimetype = mime, pathFile = filename;
+        if (options.asDocument) type = 'document';
+        if (options.asSticker || /webp/.test(mime)) {
+            let { writeExif } = require('./lib/exif');
+            let media = { mimetype: mime, data };
+            pathFile = await writeExif(media, { packname: global.packname, author: global.packname, categories: options.categories ? options.categories : [] });
+            await fs.promises.unlink(filename);
+            type = 'sticker';
+            mimetype = 'image/webp';
+        } else if (/image/.test(mime)) type = 'image';
+        else if (/video/.test(mime)) type = 'video';
+        else if (/audio/.test(mime)) type = 'audio';
+        else type = 'document';
+        await Miku.sendMessage(jid, { [type]: { url: pathFile }, mimetype, fileName, ...options }, { quoted, ...options });
+        return fs.promises.unlink(pathFile);
+    };
+
+    Miku.parseMention = async (text) => {
+        return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net');
     };
 
     return Miku;
