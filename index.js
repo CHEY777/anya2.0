@@ -29,6 +29,12 @@ const figlet = require('figlet');
 const { color } = require('./lib/color');
 const qrcode = require('qrcode-terminal'); // For QR code display
 
+// Safety check: Ensure sessionName is defined
+if (!sessionName) {
+    console.error(color('Error: sessionName is not defined in config.js. Please define it.', 'red'));
+    process.exit(1);
+}
+
 const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) });
 
 async function startMiku() {
@@ -43,7 +49,12 @@ async function startMiku() {
     console.log(color('\nHello, I am Chey, the main developer of this bot.\n\nThanks for using: Anya Bot', 'aqua'));
     console.log(color('\nYou can follow me on GitHub: Chey-san', 'aqua'));
 
-    let { version, isLatest } = await fetchLatestBaileysVersion();
+    // Fetch the latest Baileys version
+    let { version, isLatest } = await fetchLatestBaileysVersion().catch(err => {
+        console.error(color('Error fetching Baileys version:', 'red'), err);
+        return { version: [2, 2410, 1], isLatest: false }; // Fallback version
+    });
+
     const Miku = MikuConnect({
         logger: pino({ level: 'silent' }), // Change to 'debug' for detailed logs if needed
         printQRInTerminal: false, // We'll handle QR manually
@@ -237,7 +248,7 @@ Type *-help* to use this Bot 😚.
         }
     });
 
-    // Restored Message Sending Functions
+    // Message Sending Functions
     Miku.send5ButImg = async (jid, text = '', footer = '', img, but = [], thumb = null, options = {}) => {
         let mediaOptions = { image: img };
         if (thumb) mediaOptions.jpegThumbnail = thumb;
@@ -391,7 +402,6 @@ Type *-help* to use this Bot 😚.
         Miku.sendMessage(jid, listMes, { quoted: quoted });
     };
 
-    // Restored Miku.cMod
     Miku.cMod = (jid, copy, text = '', sender = Miku.user.id, options = {}) => {
         let mtype = Object.keys(copy.message)[0];
         let isEphemeral = mtype === 'ephemeralMessage';
@@ -489,7 +499,10 @@ Type *-help* to use this Bot 😚.
     return Miku;
 }
 
-startMiku();
+startMiku().catch(err => {
+    console.error(color('Error starting bot:', 'red'), err);
+    process.exit(1);
+});
 
 let file = require.resolve(__filename);
 fs.watchFile(file, () => {
