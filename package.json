@@ -21,7 +21,7 @@
   "author": "Chey (it's_chey7)",
   "license": "MIT",
   "dependencies": {
-    "@WhiskeySockets/Baileys": "^6.6.0",
+    "@whiskeysockets/baileys": "^6.6.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@develoka/angka-terbilang-js": "^1.4.2",
     "@shineiichijo/marika": "^2.0.2",
