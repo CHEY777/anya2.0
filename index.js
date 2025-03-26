@@ -12,7 +12,7 @@ const {
     makeInMemoryStore,
     jidDecode,
     proto
-} = require("@WhiskeySockets/Baileys");
+} = require("@whiskeysockets/baileys");
 const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`);
 const pino = require('pino');
 const fs = require('fs');
