@@ -2,36 +2,39 @@ const fs = require("fs");
 const chalk = require("chalk");
 const QRCode = require('qrcode'); // QR code generation ke liye
 
+// Configuration object
+const config = {};
+
 // Bot Availability and Features
-global.available = true;
-global.autoReadGc = true;
-global.autoReadAll = false;
-global.antitags = true;
+config.available = true;
+config.autoReadGc = true;
+config.autoReadAll = false;
+config.antitags = true;
 
 // Owner Information (Simplified)
-global.Owner = ['918116781147'];
-global.OwnerNumber = global.Owner; // Reference the same array
-global.ownertag = global.Owner; // Reference the same array
-global.OwnerName = "ᥴꫝꫀꪗ-𝙎𝙖𝙣💫🌙✨";
+config.Owner = ['918116781147'];
+config.OwnerNumber = config.Owner; // Reference the same array
+config.ownertag = config.Owner; // Reference the same array
+config.OwnerName = "ᥴꫝꫀꪗ-𝙎𝙖𝙣💫🌙✨";
 
 // Bot Branding
-global.BotName = "Anya🩷";
-global.packname = "Anya bot";
-global.author = "By: chey🩷";
-global.BotSourceCode = "https://github.com/Pika4O4/Anya-pika";
-global.SupportGroupLink = "https://chat.whatsapp.com/H6CUtq40oRDKIofIEbf1qEl";
-global.sessionName = "session";
+config.BotName = "Anya🩷";
+config.packname = "Anya bot";
+config.author = "By: chey🩷";
+config.BotSourceCode = "https://github.com/Pika4O4/Anya-pika";
+config.SupportGroupLink = "https://chat.whatsapp.com/H6CUtq40oRDKIofIEbf1qEl";
+config.sessionName = "session";
 
 // Command Prefix
-global.prefa = ['-']; // Ensure this matches button IDs in Core.js
+config.prefa = ['-']; // Ensure this matches button IDs in Core.js
 
 // Bot Settings
-global.location = "West Bengal, India";
-global.reactmoji = "🩷";
-global.themeemoji = "💖";
-global.vidmenu = { url: 'https://c.tenor.com/YGuLegQWubwAAAPo/miku-nakano-gotoubun-no-hanayome.mp4' };
-global.websitex = "https://cheysan.cf/";
-global.lolhuman = "KaysaS";
+config.location = "West Bengal, India";
+config.reactmoji = "🩷";
+config.themeemoji = "💖";
+config.vidmenu = { url: 'https://c.tenor.com/YGuLegQWubwAAAPo/miku-nakano-gotoubun-no-hanayome.mp4' };
+config.websitex = "https://cheysan.cf/";
+config.lolhuman = "KaysaS";
 
 // Load Assets with Error Handling
 const loadAsset = (path) => {
@@ -48,33 +51,33 @@ const loadAsset = (path) => {
     }
 };
 
-global.BotLogo = loadAsset("./Assets/pic1.jpg");
-global.Thumb = loadAsset("./Assets/pic9.jpg");
-global.Thumb1 = loadAsset("./Assets/pic5.jpg");
-global.ErrorPic = loadAsset("./Assets/pic7.jpg");
+config.BotLogo = loadAsset("./Assets/pic1.jpg");
+config.Thumb = loadAsset("./Assets/pic9.jpg");
+config.Thumb1 = loadAsset("./Assets/pic5.jpg");
+config.ErrorPic = loadAsset("./Assets/pic7.jpg");
 
 // Anti-Link and Other Arrays
-global.ntilinkytvid = [];
-global.ntilinkytch = [];
-global.ntilinkig = [];
-global.ntilinkfb = [];
-global.ntilinktg = [];
-global.ntilinktt = [];
-global.ntilinktwt = [];
-global.ntilinkall = [];
-global.nticall = [];
-global.ntwame = [];
-global.nttoxic = [];
-global.ntnsfw = [];
-global.ntvirtex = [];
-global.rkyt = [];
-global.wlcm = [];
-global.gcrevoke = [];
-global.autorep = [];
-global.ntilink = [];
+config.ntilinkytvid = [];
+config.ntilinkytch = [];
+config.ntilinkig = [];
+config.ntilinkfb = [];
+config.ntilinktg = [];
+config.ntilinktt = [];
+config.ntilinktwt = [];
+config.ntilinkall = [];
+config.nticall = [];
+config.ntwame = [];
+config.nttoxic = [];
+config.ntnsfw = [];
+config.ntvirtex = [];
+config.rkyt = [];
+config.wlcm = [];
+config.gcrevoke = [];
+config.autorep = [];
+config.ntilink = [];
 
 // Custom Messages
-global.mess = {
+config.mess = {
     jobdone: 'Kaam ho gya darling...',
     useradmin: 'Sorry, only *Group Admins* can use this command !...Jaa pehle admin banke aa',
     botadmin: 'Sorry, i cant execute this command without being an *Admin* of this group......To chal ab *Admin* bna 😏',
@@ -91,14 +94,14 @@ global.mess = {
 };
 
 // Merged Limits and RPG Settings
-global.limitawal = {
+config.limitawal = {
     premium: "Infinity",
     free: 100,
     monayawal: 1000,
     rakyat: "Infinity"
 };
 
-global.rpg = {
+config.rpg = {
     darahawal: 100,
     besiawal: 95,
     goldawal: 30,
@@ -108,7 +111,7 @@ global.rpg = {
 };
 
 // QR Code Generation Functions
-global.generateQRCode = async (data) => {
+config.generateQRCode = async (data) => {
     try {
         const qrCodeUrl = await QRCode.toDataURL(data); // QR code ko base64 URL mein convert karta hai
         console.log(chalk.cyan('QR Code Generated! Scan this QR to connect:'));
@@ -121,18 +124,18 @@ global.generateQRCode = async (data) => {
 };
 
 // API Configuration (Use Environment Variables for Security)
-global.APIs = {
+config.APIs = {
     zenz: 'https://zenzapis.xyz',
 };
-global.APIKeys = {
+config.APIKeys = {
     'https://zenzapis.xyz': process.env.ZENZ_API_KEY || '5d1197db351b', // Use env variable if available
 };
 
 // Flaming Text URLs
-global.flaming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text=';
-global.fluming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=fluffy-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text=';
-global.flarun = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=runner-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text=';
-global.flasmurf = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=smurfs-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text=';
+config.flaming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text=';
+config.fluming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=fluffy-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text=';
+config.flarun = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=runner-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text=';
+config.flasmurf = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=smurfs-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text=';
 
 // File Watcher for Hot Reloading
 let file = require.resolve(__filename);
@@ -143,5 +146,5 @@ fs.watchFile(file, () => {
     require(file);
 });
 
-// Export global for use in other files
-module.exports = global;
+// Export the config object
+module.exports = config;
