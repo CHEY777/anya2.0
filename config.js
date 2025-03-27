@@ -1,5 +1,6 @@
 const fs = require("fs");
 const chalk = require("chalk");
+const QRCode = require('qrcode'); // QR code generation ke liye add kiya
 
 // Bot Availability and Features
 global.available = true;
@@ -17,8 +18,8 @@ global.OwnerName = "ᥴꫝꫀꪗ-𝙎𝙖𝙣💫🌙✨";
 global.BotName = "Anya🩷";
 global.packname = "Anya bot";
 global.author = "By: chey🩷";
-global.BotSourceCode = "https://github.com/Pika4O4/Anya-pika";
-global.SupportGroupLink = "https://chat.whatsapp.com/H6CUtq40oRDKIofIEbf1qEl";
+global.BotSourceCode = "https://github.com/Chey-san/Marin-Kitagawa-MD-Bot";
+global.SupportGroupLink = "https://chat.whatsapp.com/EGHM5Nbert7JdO5pyxBN7s";
 global.sessionName = "session";
 
 // Command Prefix
@@ -104,6 +105,17 @@ global.rpg = {
     emeraldawal: 8,
     umpanawal: 10,
     potionawal: 5
+};
+
+// QR Code Generation Functions
+global.generateQRCode = async (data) => {
+    try {
+        const qrCodeUrl = await QRCode.toDataURL(data); // QR code ko base64 URL mein convert karta hai
+        return qrCodeUrl;
+    } catch (error) {
+        console.error(chalk.red('QR Code generation mein error:'), error);
+        throw new Error('QR generation failed');
+    }
 };
 
 // API Configuration (Use Environment Variables for Security)
