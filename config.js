@@ -1,6 +1,6 @@
 const fs = require("fs");
 const chalk = require("chalk");
-const QRCode = require('qrcode'); // QR code generation ke liye add kiya
+const QRCode = require('qrcode'); // QR code generation ke liye
 
 // Bot Availability and Features
 global.available = true;
@@ -18,8 +18,8 @@ global.OwnerName = "ᥴꫝꫀꪗ-𝙎𝙖𝙣💫🌙✨";
 global.BotName = "Anya🩷";
 global.packname = "Anya bot";
 global.author = "By: chey🩷";
-global.BotSourceCode = "https://github.com/Chey-san/Marin-Kitagawa-MD-Bot";
-global.SupportGroupLink = "https://chat.whatsapp.com/EGHM5Nbert7JdO5pyxBN7s";
+global.BotSourceCode = "https://github.com/Pika4O4/Anya-pika";
+global.SupportGroupLink = "https://chat.whatsapp.com/H6CUtq40oRDKIofIEbf1qEl";
 global.sessionName = "session";
 
 // Command Prefix
