@@ -82,7 +82,7 @@
     "ytdl-core": "^4.11.5",
     "ytsearch": "^1.0.4",
     "@shineiichijo/mal-news-scraper": "^0.0.2",
-    "better-sqlite3": "^7.6.2",
+    "better-sqlite3": "^8.5.2",
     "canvacord": "^5.4.10",
     "currency-system": "^2.7.1",
     "discord-xp": "^1.1.16",
