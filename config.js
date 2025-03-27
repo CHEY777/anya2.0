@@ -93,7 +93,7 @@ global.mess = {
 // Merged Limits and RPG Settings
 global.limitawal = {
     premium: "Infinity",
-    free: 100, // Updated to the second definition's value
+    free: 100,
     monayawal: 1000,
     rakyat: "Infinity"
 };
@@ -111,6 +111,8 @@ global.rpg = {
 global.generateQRCode = async (data) => {
     try {
         const qrCodeUrl = await QRCode.toDataURL(data); // QR code ko base64 URL mein convert karta hai
+        console.log(chalk.cyan('QR Code Generated! Scan this QR to connect:'));
+        console.log(qrCodeUrl);
         return qrCodeUrl;
     } catch (error) {
         console.error(chalk.red('QR Code generation mein error:'), error);
@@ -140,3 +142,6 @@ fs.watchFile(file, () => {
     delete require.cache[file];
     require(file);
 });
+
+// Export global for use in other files
+module.exports = global;
