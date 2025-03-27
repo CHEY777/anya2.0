@@ -32,13 +32,29 @@ async function startMiku() {
     let { version, isLatest } = await fetchLatestBaileysVersion()
     const Miku = MikuConnect({
         logger: pino({ level: 'silent' }),
-        printQRInTerminal: true,
+        printQRInTerminal: true, // Yeh pehle se hai, QR terminal mein print hoga
         browser: ['Anya by: Chey','Safari','1.0.0'],
         auth: state,
         version
     })
     
     store.bind(Miku.ev)
+
+    // QR Code Handling - Yeh main add kar raha hoon
+    Miku.ev.on('qr', async (qr) => {
+        try {
+            const qrCodeUrl = await global.generateQRCode(qr); // Config.js se QR generate karega
+            console.log(chalk.green('QR Code Generated! Scan this QR to connect:'));
+            console.log(qrCodeUrl); // Base64 URL console mein print hoga
+            // Owner ke number pe QR image bhejega
+            await Miku.sendMessage(global.Owner[0], { 
+                image: { url: qrCodeUrl }, 
+                caption: 'Scan this QR to connect Anya🩷! You have 30 seconds.' 
+            });
+        } catch (error) {
+            console.log(chalk.red('Error generating QR code:'), error);
+        }
+    });
 
     Miku.ev.on('creds.update', saveState)
 
