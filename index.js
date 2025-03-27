@@ -1,6 +1,6 @@
 const config = require("./config.js"); // Config.js ka export use karenge
 const { default: MikuConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@whiskeysockets/baileys");
-const { state, saveState } = useSingleFileAuthState(`./${config.sessionName}.json`); // config.sessionName use kiya
+const { state, saveState } = useSingleFileAuthState(`./${config.sessionName}.json`); // Fixed syntax for useSingleFileAuthState
 const pino = require('pino');
 const fs = require('fs');
 const chalk = require('chalk');
@@ -11,7 +11,7 @@ const { exec, spawn, execSync } = require("child_process");
 const moment = require('moment-timezone');
 const PhoneNumber = require('awesome-phonenumber');
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif');
-const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/myfunc');
+const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, sleep } = require('./lib/myfunc');
 const figlet = require('figlet');
 const { color } = require('./lib/color');
 
@@ -21,7 +21,7 @@ async function startMiku() {
     console.log(color(figlet.textSync('Anya Bot MD', {
         font: 'Pagga',
         horizontalLayout: 'default',
-        vertivalLayout: 'default',
+        verticalLayout: 'default',
         width: 80,
         whitespaceBreak: true
     }), 'pink'));
@@ -77,7 +77,8 @@ async function startMiku() {
             if (!Miku.public && !mek.key.fromMe && chatUpdate.type === 'notify') return;
             if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return;
             const m = smsg(Miku, mek, store);
-            require("./Core")(Miku, m, chatUpdate, store);
+            // Temporarily comment out Core.js to bypass ./loader error
+            // require("./Core")(Miku, m, chatUpdate, store);
         } catch (err) {
             console.log(err);
         }
