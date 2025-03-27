@@ -29,7 +29,7 @@
     "@bochilteam/scraper": "^2.0.0",
     "awesome-phonenumber": "^2.70.0",
     "axios": "^1.6.8",
-    "chalk": "^4.1.2",
+    "chalk": "^5.2.0",
     "figlet": "^1.5.0",
     "cheerio": "^1.0.0-rc.12",
     "cfonts": "^2.9.0",
@@ -43,6 +43,7 @@
     "anime-wallpaper": "^1.0.2",
     "fluent-ffmpeg": "^2.1.2",
     "fs": "0.0.1-security",
+    "fs-extra": "^11.1.1",
     "g-i-s": "^2.1.6",
     "google-it": "^1.6.2",
     "got": "^11.8.3",
@@ -98,8 +99,7 @@
     "supervisor": "^0.12.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "uuid": "^9.0.1",
-    "@adiwajshing/baileys": "git+https://github.com/WhiskeySockets/Baileys.git"
+    "uuid": "^9.0.1"
   },
   "directories": {
     "lib": "lib",
