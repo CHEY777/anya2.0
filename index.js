@@ -1,6 +1,5 @@
-const config = require("./config.js"); // Config.js ka export use karenge
+const config = require("./config.js");
 const { default: MikuConnect, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@whiskeysockets/baileys");
-const { state, saveState } = await useMultiFileAuthState('./auth_info'); // Replaced useSingleFileAuthState with useMultiFileAuthState
 const pino = require('pino');
 const fs = require('fs');
 const chalk = require('chalk');
@@ -18,6 +17,8 @@ const { color } = require('./lib/color');
 const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) });
 
 async function startMiku() {
+    const { state, saveState } = await useMultiFileAuthState('./auth_info');
+
     console.log(color(figlet.textSync('Anya Bot MD', {
         font: 'Pagga',
         horizontalLayout: 'default',
@@ -26,13 +27,13 @@ async function startMiku() {
         whitespaceBreak: true
     }), 'pink'));
 
-    console.log(color(`\nHello, I am Chey, the main developer of this bot.\n\nThanks for using: ${config.BotName}\n`, 'aqua')); // config.BotName use kiya
+    console.log(color(`\nHello, I am Chey, the main developer of this bot.\n\nThanks for using: ${config.BotName}\n`, 'aqua'));
     console.log(color('You can follow me on GitHub: Chey-san', 'aqua'));
 
     let { version, isLatest } = await fetchLatestBaileysVersion();
     const Miku = MikuConnect({
         logger: pino({ level: 'silent' }),
-        printQRInTerminal: true, // Yeh pehle se hai, QR terminal mein print hoga
+        printQRInTerminal: true,
         browser: ['Anya by: Chey', 'Safari', '1.0.0'],
         auth: state,
         version
@@ -40,14 +41,12 @@ async function startMiku() {
 
     store.bind(Miku.ev);
 
-    // QR Code Handling
     Miku.ev.on('qr', async (qr) => {
         try {
-            const qrCodeUrl = await config.generateQRCode(qr); // config.generateQRCode use kiya
+            const qrCodeUrl = await config.generateQRCode(qr);
             console.log(chalk.green('QR Code Generated! Scan this QR to connect:'));
-            console.log(qrCodeUrl); // Base64 URL console mein print hoga
-            // Owner ke number pe QR image bhejega
-            await Miku.sendMessage(config.Owner[0] + '@s.whatsapp.net', { // config.Owner use kiya
+            console.log(qrCodeUrl);
+            await Miku.sendMessage(config.Owner[0] + '@s.whatsapp.net', {
                 image: { url: qrCodeUrl },
                 caption: 'Scan this QR to connect Anya🩷! You have 30 seconds.'
             });
@@ -61,7 +60,7 @@ async function startMiku() {
     Miku.ws.on('CB:call', async (json) => {
         const callerId = json.content[0].attrs['call-creator'];
         if (json.content[0].tag == 'offer') {
-            let pa7rick = await Miku.sendContact(callerId, config.owner); // config.owner use kiya
+            let pa7rick = await Miku.sendContact(callerId, config.owner);
             Miku.sendMessage(callerId, { text: `Baka! You will be blocked automatically for calling me!` }, { quoted: pa7rick });
             await sleep(8000);
             await Miku.updateBlockStatus(callerId, "block");
@@ -77,7 +76,6 @@ async function startMiku() {
             if (!Miku.public && !mek.key.fromMe && chatUpdate.type === 'notify') return;
             if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return;
             const m = smsg(Miku, mek, store);
-            // Temporarily comment out Core.js to bypass ./loader error
             // require("./Core")(Miku, m, chatUpdate, store);
         } catch (err) {
             console.log(err);
@@ -261,7 +259,6 @@ Type *-help* to use this Bot 😚.
         }
     });
 
-    // Rest of your methods remain unchanged...
     Miku.send5ButImg = async (jid, text = '', footer = '', img, but = [], thumb, options = {}) => {
         let message = await prepareWAMessageMedia({ image: img, jpegThumbnail: thumb }, { upload: Miku.waUploadToServer });
         var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
@@ -510,7 +507,7 @@ Type *-help* to use this Bot 😚.
         Miku.sendMessage(jid, templateMessage);
     };
 
-    Miku.sendFile = async(jid, PATH, fileName, quoted = {}, options = {}) => {
+    Mnku.sendFile = async(jid, PATH, fileName, quoted = {}, options = {}) => {
         let types = await Miku.getFile(PATH, true);
         let { filename, size, ext, mime, data } = types;
         let type = '', mimetype = mime, pathFile = filename;
