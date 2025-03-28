@@ -507,13 +507,13 @@ Type *-help* to use this Bot 😚.
         Miku.sendMessage(jid, templateMessage);
     };
 
-    Mnku.sendFile = async(jid, PATH, fileName, quoted = {}, options = {}) => {
+    Miku.sendFile = async(jid, PATH, fileName, quoted = {}, options = {}) => {
         let types = await Miku.getFile(PATH, true);
         let { filename, size, ext, mime, data } = types;
         let type = '', mimetype = mime, pathFile = filename;
         if (options.asDocument) type = 'document';
         if (options.asSticker || /webp/.test(mime)) {
-            let { writeExif } = require('./lib/sticker.js');
+            let { writeExif } = require('./lib/exif');
             let media = { mimetype: mime, data };
             pathFile = await writeExif(media, { packname: config.packname, author: config.packname, categories: options.categories ? options.categories : [] });
             await fs.promises.unlink(filename);
