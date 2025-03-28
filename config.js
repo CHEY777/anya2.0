@@ -110,12 +110,10 @@ config.rpg = {
     potionawal: 5
 };
 
-// QR Code Generation Functions
+// QR Code Generation Function
 config.generateQRCode = async (data) => {
     try {
         const qrCodeUrl = await QRCode.toDataURL(data); // QR code ko base64 URL mein convert karta hai
-        console.log(chalk.cyan('QR Code Generated! Scan this QR to connect:'));
-        console.log(qrCodeUrl);
         return qrCodeUrl;
     } catch (error) {
         console.error(chalk.red('QR Code generation mein error:'), error);
