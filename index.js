@@ -1,6 +1,6 @@
 const config = require("./config.js"); // Config.js ka export use karenge
-const { default: MikuConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@whiskeysockets/baileys");
-const { state, saveState } = useSingleFileAuthState(`./${config.sessionName}.json`); // Fixed syntax for useSingleFileAuthState
+const { default: MikuConnect, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@whiskeysockets/baileys");
+const { state, saveState } = await useMultiFileAuthState('./auth_info'); // Replaced useSingleFileAuthState with useMultiFileAuthState
 const pino = require('pino');
 const fs = require('fs');
 const chalk = require('chalk');
