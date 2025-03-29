@@ -20,7 +20,7 @@
   ],
   "author": "Chey (it's_chey7)",
   "license": "MIT",
-  "dependencies":
+  "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
     "@develoka/angka-terbilang-js": "^1.4.2",
     "@shineiichijo/marika": "^2.0.2",
@@ -33,7 +33,6 @@
     "cheerio": "^1.0.0-rc.12",
     "cfonts": "^2.9.0",
     "node-superfetch": "^0.1.11",
-    "child_process": "^1.0.2",
     "crypto": "^1.0.1",
     "random-useragent": "^0.5.0",
     "random-seed": "^0.3.0",
@@ -97,8 +96,8 @@
     "supervisor": "^0.12.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "uuid": "^9.0.1",
-   },
+    "uuid": "^9.0.1"
+  },
   "directories": {
     "lib": "lib",
     "src": "src"
