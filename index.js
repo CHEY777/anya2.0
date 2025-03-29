@@ -1,4 +1,12 @@
-const config = require("./config.js"); const { default: MikuConnect, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@whiskeysockets/baileys"); const pino = require('pino'); const fs = require('fs'); const chalk = require('chalk'); const FileType = require('file-type'); const path = require('path'); const CFonts = require('cfonts'); const { exec, spawn, execSync } = require("child_process"); const moment = require('moment-timezone'); const PhoneNumber = require('awesome-phonenumber'); const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif'); const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, sleep } = require('./lib/myfunc'); const figlet = require('figlet'); const { color } = require('./lib/color');
+const config = require("./config.js");
+const { default: MikuConnect, useMultiFileAuthState } = require("@whiskeysockets/baileys");
+
+async function startMiku() {
+    const { state, saveState } = await useMultiFileAuthState('./auth_info');
+    console.log("Bot is starting...");
+}
+
+startMiku();const config = require("./config.js"); const { default: MikuConnect, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@whiskeysockets/baileys"); const pino = require('pino'); const fs = require('fs'); const chalk = require('chalk'); const FileType = require('file-type'); const path = require('path'); const CFonts = require('cfonts'); const { exec, spawn, execSync } = require("child_process"); const moment = require('moment-timezone'); const PhoneNumber = require('awesome-phonenumber'); const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif'); const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, sleep } = require('./lib/myfunc'); const figlet = require('figlet'); const { color } = require('./lib/color');
 
 const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) });
 
