@@ -20,8 +20,7 @@
   ],
   "author": "Chey (it's_chey7)",
   "license": "MIT",
-  "dependencies": {
-    "@whiskeysockets/baileys": "^6.6.0",
+  "dependencies":
     "@adiwajshing/keyed-db": "^0.2.4",
     "@develoka/angka-terbilang-js": "^1.4.2",
     "@shineiichijo/marika": "^2.0.2",
