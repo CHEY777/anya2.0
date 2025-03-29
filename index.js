@@ -1,45 +1,30 @@
-const config = require("./config.js");
-const { default: MikuConnect, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@whiskeysockets/baileys");
-const pino = require('pino');
-const fs = require('fs');
-const chalk = require('chalk');
-const FileType = require('file-type');
-const path = require('path');
-const CFonts = require('cfonts');
-const { exec, spawn, execSync } = require("child_process");
-const moment = require('moment-timezone');
-const PhoneNumber = require('awesome-phonenumber');
-const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif');
-const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, sleep } = require('./lib/myfunc');
-const figlet = require('figlet');
-const { color } = require('./lib/color');
+const config = require("./config.js"); const { default: MikuConnect, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@whiskeysockets/baileys"); const pino = require('pino'); const fs = require('fs'); const chalk = require('chalk'); const FileType = require('file-type'); const path = require('path'); const CFonts = require('cfonts'); const { exec, spawn, execSync } = require("child_process"); const moment = require('moment-timezone'); const PhoneNumber = require('awesome-phonenumber'); const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif'); const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, sleep } = require('./lib/myfunc'); const figlet = require('figlet'); const { color } = require('./lib/color');
 
 const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) });
 
-async function startMiku() {
-    const { state, saveState } = await useMultiFileAuthState('./auth_info');
+async function startMiku() { const { state, saveState } = await useMultiFileAuthState('./auth_info');
 
-    console.log(color(figlet.textSync('Anya Bot MD', {
-        font: 'Pagga',
-        horizontalLayout: 'default',
-        verticalLayout: 'default',
-        width: 80,
-        whitespaceBreak: true
-    }), 'pink'));
+console.log(color(figlet.textSync('Anya Bot MD', {
+    font: 'Pagga',
+    horizontalLayout: 'default',
+    verticalLayout: 'default',
+    width: 80,
+    whitespaceBreak: true
+}), 'pink'));
 
-    console.log(color(`\nHello, I am Chey, the main developer of this bot.\n\nThanks for using: ${config.BotName}\n`, 'aqua'));
-    console.log(color('You can follow me on GitHub: Chey-san', 'aqua'));
+console.log(color(`\nHello, I am Chey, the main developer of this bot.\n\nThanks for using: ${config.BotName}\n`, 'aqua'));
+console.log(color('You can follow me on GitHub: Chey-san', 'aqua'));
 
-    let { version, isLatest } = await fetchLatestBaileysVersion();
-    const Miku = MikuConnect({
-        logger: pino({ level: 'silent' }),
-        printQRInTerminal: true,
-        browser: ['Anya by: Chey', 'Safari', '1.0.0'],
-        auth: state,
-        version
-    });
-
-    store.bind(Miku.ev);
+let { version, isLatest } = await fetchLatestBaileysVersion();
+const Miku = MikuConnect({
+    logger: pino({ level: 'silent' }),
+    printQRInTerminal: true,
+    browser: ['Anya by: Chey', 'Safari', '1.0.0'],
+    auth: state,
+    version
+});
+                            
+ store.bind(Miku.ev);
 
     Miku.ev.on('qr', async (qr) => {
         try {
