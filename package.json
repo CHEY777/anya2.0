@@ -98,8 +98,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "uuid": "^9.0.1",
-    "@adiwajshing/baileys": "git+https://github.com/WhiskeySockets/Baileys.git"
-  },
+   },
   "directories": {
     "lib": "lib",
     "src": "src"
