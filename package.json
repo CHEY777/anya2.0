@@ -103,14 +103,12 @@
     "lib": "lib",
     "src": "src"
   },
-  "repository “
-
-{
-  "type": "git",
-  "url": "git+https://github.com/DGXeon/CheemsBot-MD3.git"
-},
-"bugs": {
-  "url": "https://github.com/DGXeon/CheemsBot-MD3/issues"
-},
-"homepage": "https://github.com/DGXeon/CheemsBot-MD3#readme"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DGXeon/CheemsBot-MD3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DGXeon/CheemsBot-MD3/issues"
+  },
+  "homepage": "https://github.com/DGXeon/CheemsBot-MD3#readme"
 }
