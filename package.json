@@ -21,7 +21,6 @@
   "author": "Chey (it's_chey7)",
   "license": "MIT",
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.7.5",
     "@develoka/angka-terbilang-js": "^1.4.2",
     "@shineiichijo/marika": "^2.0.6",
     "@shineiichijo/nhentai-pdf": "^1.2.0",
