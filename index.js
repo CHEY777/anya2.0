@@ -1,6 +1,5 @@
 require("./config.js")
-const { default: MikuConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
-const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
+const { default: MikuConnect, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("baileys")
 const pino = require('pino')
 const fs = require('fs')
 const chalk = require('chalk')
@@ -18,6 +17,7 @@ const { color } = require('./lib/color')
 const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
 
 async function startMiku() {
+    const { state, saveCreds } = await useMultiFileAuthState(`session`)
 console.log(color(figlet.textSync('Anya Bot MD', {
 		font: 'Pagga',
 		horizontalLayout: 'default',
@@ -293,7 +293,7 @@ Type *-help* to use this Bot 😚.
         //console.log('Connected...', update)
     })
 
-    Miku.ev.on('creds.update', saveState)
+    Miku.ev.on('creds.update', saveCreds)
 
 
    
